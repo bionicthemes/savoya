@@ -1,0 +1,255 @@
+.offcanvas-minicart
+{
+	background: darken( $black, 10% );
+	position: fixed;
+	top: 0;
+	right: -100vw;
+	z-index: 9999;
+	transition: all ease .25s;
+	opacity: 0;
+	width: 100%;  
+	box-shadow: -10px 0px 102px -3px rgba(50, 50, 50, 0.75);
+	
+	@media  #{$medium-up}
+	{	
+		width: 460px; 
+	}
+	
+	&.active
+    {
+    	transition: all ease .25s;
+    	right: 0;
+    	opacity: 1;     	
+    }
+	
+	.offcanvas-minicart-content
+	{
+		height: calc(100vh - 136px);
+		 
+		.offcanvas-minicart-header
+		{
+			@include list-inline();
+			color: $white; 
+			padding: rem-calc(30) rem-calc(20); 
+			position: relative;
+			border-bottom: 3px solid $color-text;
+			
+			ul
+			{
+				li
+				{
+					padding: 0;
+					text-transform: uppercase;
+					text-align: center; 
+					font-weight: 900; 
+					
+					a
+					{
+						color: $white; 
+						
+						.shopping_bag_items_number
+						{
+							font-weight: bold;
+							font-family: $main-font; 
+							background-color: $color-text;
+							padding: rem-calc(2) rem-calc(4);
+							border-radius: 10px;  
+							color: $white; 
+							font-size: rem-calc(10); 
+						}
+
+					}
+
+					&.shopping-cart-title
+					{
+						padding-left: rem-calc(15); 
+					}
+
+				}
+
+				.close-btn
+				{
+					right: 20px;
+					width: 16px;
+					height: 16px;  
+					
+					&:before,
+					&:after
+					{
+						background: $white; 
+					}
+					
+					
+				}
+				
+			}
+		}
+
+
+		.offcanvas-minicart-products
+		{
+			@include list-block();
+			padding: rem-calc(20) rem-calc(0); 
+			
+			ul
+			{
+				.minicart-product
+				{
+					color: #FFF; 
+					font-size: rem-calc(14); 
+					position: relative;
+					padding: rem-calc(10) 0 rem-calc(10) rem-calc(100); 
+					margin-left: rem-calc(20); 
+					border-bottom: 1px dashed $color-text;
+					transition: all ease .5s;
+					
+					&:hover
+					{
+						background: url("../images/iphone5c.png");
+						background-repeat: no-repeat;
+						background-size: cover;
+						background-position: center;   
+						opacity: .2; 
+						transition: all ease .5s;
+					}
+					
+					&:last-child
+					{
+						border-bottom: none; 
+					} 
+					
+					img
+					{
+						position: absolute;
+						top: 20px;
+						left: 0;
+						margin-right: rem-calc(20); 
+					}
+
+					.minicart-product-title
+					{
+						margin-bottom: 0;
+						
+						a
+						{
+							color: #FFF; 
+						}
+					}
+
+					.product-meta
+					{
+						.variation
+						{
+							dt
+							{
+								float: left;
+								margin: 0 rem-calc(10) 0 0;
+							}
+
+							dd
+							{
+								p
+								{
+									margin: 0;
+								}
+							}
+						}
+
+					}
+
+					.count
+					{
+						font-weight: bold;
+					}
+
+					.price
+					{
+						letter-spacing: .1em;
+					}
+				}
+			}
+		}
+	}
+
+	.offcanvas-minicart-footer
+	{
+		@include list-inline();
+		padding: 0 rem-calc(20);
+		
+		.subtotal
+		{
+			color: $white; 
+			padding-bottom: rem-calc(10); 
+			text-transform: uppercase; 
+			border-bottom: 1px solid $color-text; 
+			
+			
+			
+			li
+			{
+				font-size: rem-calc(22); 
+				padding: 0;
+				font-weight: 300; 
+				
+				&.price
+				{
+					float: right;
+					font-weight: 500; 
+				}
+			}
+			
+		}
+
+		.minicart-buttons
+		{
+			padding: rem-calc(20) 0; 
+			
+			&:after
+			{
+				content: "";
+				display: block;
+				clear: both; 
+			}
+			
+			a
+			{
+				font-size: rem-calc(20);
+				display: inline-block;
+				width: 50%;
+				float: left; 
+				text-align: center;
+				padding: rem-calc(8) 0; 
+				text-transform: uppercase;
+				letter-spacing: .1em; 
+				
+				&.checkout
+				{
+					background: $color-text;
+					color: #FFF;  
+					border: 1px solid transparent; 	
+					
+					&:hover
+					{
+						color: $color-text; 
+						border: 1px solid $white; 
+						background: $white;
+						opacity: 1;
+					}
+				} 
+
+				&.view_cart
+				{
+					// background: #ff3939;
+					border: 1px solid $color-text;
+					color: $white;
+					
+					&:hover
+					{
+						border: none; 
+						color: $color-text;
+					} 
+				}
+			}
+		}
+	}
+}

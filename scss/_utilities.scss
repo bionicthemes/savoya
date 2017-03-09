@@ -1,0 +1,117 @@
+// =========================================================
+// Utilities
+// =========================================================
+
+// Import if Google Fonts URL is defined
+
+@if variable-exists(font-url--google) {
+	@import url($font-url--google);
+}
+
+
+// Mixins
+
+@mixin img-replace($img, $width, $height, $display : block) {
+	background-image: ('#{$path--rel}/#{$img}');
+	background-repeat: no-repeat;
+	width: $width;
+	height: $height;
+	display: $display;    
+}
+
+@mixin pseudo-element ($element, $element-width: null, $element-height: null) {
+
+	@if $element == 'before' or $element == 'after' {
+		&:#{$element} {
+			@extend %pseudos;
+			width: $element-width;
+			height: $element-height;
+			@content;
+		}
+	} @else {
+		@error " '#{$element}' is not a pseudo-element ";
+	}
+
+}
+
+
+// Mixin Navigation List
+
+@mixin list-block() 
+{
+	ul 
+	{
+		list-style-type: none;
+		margin: 0;
+		
+		li 
+		{
+			display: block;
+			padding: 0 rem-calc(10); 
+		} 
+	}
+}
+
+@mixin list-inline() 
+{
+	ul 
+	{
+		list-style-type: none;
+		margin: 0;
+		
+		li 
+		{
+			display: inline-block;
+			padding: 0 rem-calc(10); 
+			
+			&:last-child
+			{
+				padding-right: 0;
+			}
+			
+			a
+			{
+				&:last-child
+				{
+					padding-right: 0;
+				}
+			}
+
+		} 
+	}
+}
+
+
+@mixin transition($element,$time, $mode) {
+	transition: $element $time $mode;
+}
+
+
+// Mixin Clearfix
+@mixin clearfix() {
+	&:after
+	{
+		content: "";
+		display: block;
+		clear: both; 
+	}
+}
+
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {@content}
+  &:-moz-placeholder           {@content}
+  &::-moz-placeholder          {@content}
+  &:-ms-input-placeholder      {@content}  
+}
+
+// Vertical Align
+
+
+@mixin vertical-align($position: absolute) {
+  position: $position;
+  top: 50%;
+  -webkit-transform:  perspective(1px) translateY(-50%);
+  -ms-transform:  perspective(1px) translateY(-50%);
+  transform : perspective(1px) translateY(-50%);
+}

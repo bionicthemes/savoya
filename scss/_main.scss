@@ -1,0 +1,21 @@
+
+
+.wide
+{
+	width: 100%; 
+	transition: all ease .5s;
+}
+
+.boxed
+{
+	max-width: 1140px; 
+	margin: 0 auto;
+	transition: all ease .5s;
+}
+
+.icon
+{
+	font-size: rem-calc(16);
+	padding: 0 rem-calc(5); 
+}
+

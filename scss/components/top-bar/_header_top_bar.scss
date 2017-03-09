@@ -1,0 +1,205 @@
+.header-top-bar
+{
+    padding: 0 rem-calc(10); 
+    position: relative;
+    z-index: 999;
+    background: #05F9DF; 
+    font-size: rem-calc(11);
+    
+    @include breakpoint(medium down)
+    {
+    	display: none;
+    }
+    
+    .header-topbar-content
+	{	
+		@include clearfix();
+		padding: 0; 
+		margin: 0 auto;
+		
+	    .header-topbar-info,
+	    .header-topbar-social
+	    {
+	    	
+			@include list-inline();	
+			font-weight: normal;
+			
+			ul
+			{
+				li
+				{
+					text-align: center;
+					padding: 5px !important; 
+					font-weight: normal;
+					
+					letter-spacing: .05em; 
+					font-weight: 500; 
+					@include transition(background, .75s, ease-out);
+					
+					&:not(.email, .phone, .adress)
+					{
+						&:hover
+						{
+							a
+							{
+								i
+								{
+									color: #FFF; 
+								}
+							}
+						}
+					}
+
+					&:last-child
+					{
+						margin-right: 0;
+					}
+
+					&.facebook
+					{
+						&:hover
+						{
+							background: #3B5999; 
+						}
+						
+					}
+
+					&.twitter
+					{
+						&:hover
+						{
+							background: #55ACEE; 
+						}
+					}
+
+					&.linkedin
+					{
+						&:hover
+						{
+							background: #0077B5; 
+						}
+					}
+
+					&.skype
+					{
+						&:hover
+						{
+							background: #00AFF0; 
+						}
+					}
+
+					&.vimeo
+					{
+						&:hover
+						{
+							background: #1AB7EA; 
+						}
+					}
+
+					&.tumblr
+					{
+						&:hover
+						{
+							background: #34465D; 
+						}
+					}
+
+					&.googleplus
+					{
+						&:hover
+						{
+							background: #DD4B39; 
+						}
+					}
+
+					&.pinterest
+					{
+						&:hover
+						{
+							background: #BD081C; 
+						}
+					}
+
+					&.youtube
+					{
+						&:hover
+						{
+							background: #CD201F; 
+						}
+					}
+
+					&.soundcloud
+					{
+						&:hover
+						{
+							background: #FF3300;
+						}
+					}
+
+					&.instagram
+					{
+						&:hover
+						{
+							background: #E4405F; 
+						}
+					}
+
+					&.dribbble
+					{
+						&:hover
+						{
+							background: #EA4C89; 
+						}
+					}
+
+					&.flickr
+					{
+						&:hover
+						{
+							background: #FF0084; 
+						}
+					}
+
+					&.foursquare
+					{
+						&:hover
+						{
+							background: #F94877; 
+						}
+					}
+
+					&.behance
+					{
+						&:hover
+						{
+							background: #131418; 
+						}
+					}
+
+					&.rss
+					{
+						&:hover
+						{
+							background: #F60; 
+						}
+					}
+
+
+
+				}
+			}
+	    } 	
+	    
+	    .header-topbar-info
+	    {
+	    	float: left;
+	    }
+
+	    .header-topbar-social
+	    {
+	    	float: right;
+	    }
+	}
+	
+
+}

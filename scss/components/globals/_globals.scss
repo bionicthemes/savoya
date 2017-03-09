@@ -1,0 +1,225 @@
+body 
+{
+	width: 100%;
+}
+
+a 
+{
+	transition: all .3s;
+	color: #000; // TEMP
+	
+	&:hover
+	{
+		color: #CCC; // TEMP
+	} 
+}
+
+[type='text'],
+[type='password'],
+[type='date'],
+[type='datetime'],
+[type='datetime-local'],
+[type='month'],
+[type='week'],
+[type='email'],
+[type='number'],
+[type='search'],
+[type='tel'],
+[type='time'],
+[type='url'],
+[type='color'],
+textarea,
+select
+{
+    height: rem-calc(50);
+    padding: 0 1rem;
+    font-weight: bold;
+    font-size: rem-calc(16); 
+    
+    @include breakpoint(medium)
+    {
+    	font-size: rem-calc(18); 
+    }
+    
+}
+
+textarea
+{
+	padding: 0.5rem 1rem;
+}
+
+table
+{
+    
+    width: 100%;
+
+    > tr
+    {
+    	border-bottom: 1px solid #f0f0f0;
+
+    	> th 
+    	{	        
+	        text-align: left;
+	        padding: rem-calc(25) 0;		        
+		    font-size: rem-calc(14);
+	    }
+	    
+	    > td 
+	    {
+
+	    }
+    }
+
+    > thead
+    {
+
+	    > tr
+	    {
+	    	border-bottom: 1px solid #f0f0f0;
+
+	    	> th
+		    {
+		        padding: rem-calc(10) 0;  		        
+		        font-size: rem-calc(14);  	
+		        font-weight: normal;
+		        text-align: left;
+		        text-transform: uppercase;  	
+	    	}
+
+	    	> td {
+
+	    		padding: rem-calc(25) 0 0 0;
+				font-size: rem-calc(14); 
+		    }
+	    }	    
+	}
+
+	> tbody
+    {
+	    > tr
+	    {
+	    	> th
+		    {
+		        padding: rem-calc(10) 0;
+		        font-size: rem-calc(14);
+		        font-weight: normal;
+		        text-align: left;
+		        font-size: rem-calc(14); 
+	    	}
+
+	    	> td 
+	    	{
+
+		        font-size: rem-calc(14); 
+		        padding: rem-calc(10) 0; 	        
+		    }
+	    }
+	}
+}
+
+dl dt
+{
+	font-size: rem-calc(14);
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	margin-top: rem-calc(30);
+}
+
+
+figure 
+{
+	max-width: 100%;
+	margin: 0;
+}
+
+pre
+{
+	background: #F1F1F1;
+	padding: rem-calc(25);  
+	margin: rem-calc(30) 0; 
+}
+
+q
+{
+	font-size: rem-calc(26);
+	font-weight: bold; 
+}
+
+
+.site-content 
+{
+	background: #fff;
+}
+
+.woocommerce-Tabs-panel--description,
+.product-right-col .description,
+.entry-content
+{
+	a
+	{
+		font-weight: bold;
+	}
+}
+
+.alignleft 
+{
+	float: left;
+	margin-right: rem-calc(30);
+}
+
+.aligncenter 
+{
+	margin: 0 auto;
+}
+
+.alignright 
+{
+	float: right;
+	margin-left: rem-calc(30);
+}
+
+// Blockquotes
+
+blockquote 
+{
+  margin: 0 0 rem-calc(70);
+  padding: $blockquote-padding;
+  border-top: 1px solid $light-gray;
+  border-bottom: 1px solid $light-gray;
+  border-left: none;
+  font-size: rem-calc(26); 
+  line-height: rem-calc(42); 
+
+  p 
+  {
+    line-height: rem-calc(42);
+    color: $blockquote-color;
+    font-weight: bold;
+    margin-bottom: 0;
+  }
+
+  & > p
+  {
+  	color: #000; // TEMP
+  	line-height: rem-calc(42); 
+  }
+}
+
+// Citations
+
+cite 
+{
+  display: block;
+  font-size: $cite-font-size;
+  color: $cite-color;
+  font-style: normal; 
+  text-transform: uppercase; 
+  font-weight: bold;
+  font-family: 'embed-rubik', sans-serif; 
+  letter-spacing: .1em;
+  padding-top: rem-calc(20); 
+
+  &:before {
+    content: '\2014 \0020';
+  }
+}

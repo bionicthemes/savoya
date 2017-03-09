@@ -1,0 +1,180 @@
+/* ==========================================================
+/* ===== Header Default =====================================
+/* ========================================================== */
+
+.site-header
+{
+	position: relative; 
+	transition: height .4s ease,opacity .3s ease;
+	z-index: 2;
+	font-family: $main-font;
+	box-shadow: 0 0 0 4px rgba(66,48,58,0.08);
+	@include clearfix();
+	
+	&.header-style-1
+	{
+		.header-container
+		{
+			width: 100%; 
+			height: 100%; 
+			padding: 0 rem-calc(20); 
+			@include list-inline();
+			@include clearfix();
+			@import 'menu';	
+			display: table;
+			
+			@media #{$large-up}
+			{
+				padding: 0 rem-calc(20);
+			}
+
+			.header-branding,
+			.main-navigation
+			{
+				> ul
+				{
+					line-height: rem-calc(32); 
+				}
+			}
+
+			.header-widget
+			{
+				display: none;
+				
+				@include breakpoint(large)
+				{
+					display: table-cell;
+					vertical-align: middle;
+					text-align: right;
+				}
+			}
+
+			.active &
+			{
+				background: $white; 
+				box-shadow: 0 0 10px rgba( 0, 0, 0, .2 );
+			}
+
+			.header-branding
+			{
+				display: table-cell;
+				vertical-align: middle;
+				text-align: left;
+				
+				.logo
+		    	{
+		    		max-width: rem-calc(212); // logo size 
+		    		transition: max-width .4s ease,margin .4s ease,opacity .2s .2s ease;
+
+		    	}
+
+		    	.site-title
+		    	{
+		    		a
+		    		{
+		    			font-size: rem-calc(14); 
+		    			font-weight: bold;
+		    		}
+		    		
+		    	}
+					
+				a
+				{
+					display: block;
+				}
+			}
+
+			.main-navigation
+			{
+				display: inline-block;
+				vertical-align: middle;	
+				position: relative;
+				text-align: right;
+				padding-left: rem-calc(20); 
+				
+				ul
+				{
+					.menu-item
+					{
+						font-size: rem-calc(12);
+						transition: all ease .2s; 
+					}
+					
+				}
+
+			}
+
+			.offcanvas-menu-icon
+			{
+			    display: table-cell;
+			    vertical-align: middle;
+			    text-align: right;
+
+			    a
+			    {
+		    		color: $black;
+		    		margin-top: -5px;  
+			    }
+			}
+
+			.header-tools
+			{
+
+				display: none;	
+				
+				@include breakpoint(large)
+				{
+					text-transform: capitalize; 
+					display: table-cell;
+					vertical-align: middle;
+					text-align: right;
+					width: rem-calc(120); 
+				}
+
+				.header-icons
+				{
+					padding-left: rem-calc(30);   
+					
+					li
+					{
+						a
+						{
+							.shopping_bag_items_number
+							{
+								font-weight: bold;
+								background-color: $color-text;
+								padding: rem-calc(2) rem-calc(4);
+								border-radius: 10px;  
+								color: $white; 
+								font-size: rem-calc(10); 
+							}
+
+						}
+					}
+				}
+			}
+
+		}
+
+		&.header-sticky
+		{
+			&.active
+			{
+				.main-navigation
+				{
+					.menu-item
+					{
+						a
+						{
+							// padding: 0 rem-calc(10); 
+						}
+
+					}
+				}
+			}
+		}
+
+	}
+
+}
+

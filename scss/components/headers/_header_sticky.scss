@@ -1,0 +1,41 @@
+
+.header-sticky.active 
+{
+	&.site-header
+	{	
+		position: fixed;
+		top: 0;
+		width: 100%;
+		box-shadow: 0 0 10px rgba( 0, 0, 0, .2 );
+		
+		.admin-bar & 
+		{
+
+	    	@media #{$medium-up}
+	    	{
+	    		top: 32px; 
+	    	}
+		}
+	}
+
+	&.header-branding
+    {
+    	.logo
+    	{
+    		transition: max-width .4s ease,margin .4s ease,opacity .2s .2s ease;
+    		
+    		@media #{$large-up}
+    		{
+    			max-width: 60px; 
+    		}
+    	}
+    }
+   
+
+    &.boxed
+    {
+    	max-width: 100%; 
+    }
+}
+
+

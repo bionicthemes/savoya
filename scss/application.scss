@@ -1,0 +1,27 @@
+// =========================================================
+// The main file where we include all we need
+// =========================================================
+@import 'reset';
+@import 'foundation';
+@import 'config';
+@import 'helpers';
+@import 'utilities';
+@import 'base';
+@import 'main';
+@import 'theme';
+
+// temp
+
+
+@import 'components/header';
+@import 'components/footer';
+
+@import 'components/offcanvas/offcanvas_minicart';
+@import 'components/offcanvas/offcanvas_right';
+
+
+
+.page-wrapper
+{
+	display: none;
+}

@@ -1,0 +1,123 @@
+// ==========================================================================
+// Helpers
+// ==========================================================================
+
+// Clearfix
+
+%clearfix
+{
+  &:after 
+  {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+// Screen reader text
+
+.srt
+{
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+}
+
+// For pseudo-elements
+
+%pseudos
+{
+  display: block;
+  content: ''; 
+  position: absolute;
+}
+
+// Animations
+
+@keyframes animation_main_menu {
+	0% {
+		opacity: 0;
+		margin: 0.9375em 0 0 0;
+	}
+	100% {
+		opacity: 1;
+		margin: 0;
+	}
+}
+
+
+
+@keyframes animation_main_menu_out {
+	0% {
+		opacity: 1;
+		margin: 0;
+	}
+	100% {
+		opacity: 0;
+		margin-bottom: 20px;
+	}
+}
+
+
+// Close Button
+
+.close-btn
+{
+	position: absolute;
+	top: 50%;
+	right: 0;
+	margin-top: -8px;  
+	display: inline-block;
+	width: rem-calc(16);
+	height: rem-calc(16);
+	overflow: hidden;
+	
+	// Thanks to Rubén Reyes for the concept
+	
+	&:hover 
+	{
+	    &::before,
+	    &::after
+	    {
+	      opacity: .5; 
+	    }
+	}
+	&::before, 
+	&::after 
+	{
+	    content: '';
+	    position: absolute;
+	    height: 2px;
+	    width: 100%;
+	    top: 50%;
+	    left: 0;
+	    margin-top: -1px;
+	    background: #000;
+    }
+
+    &::before
+    {
+    	transform: rotate(45deg);
+	}
+
+	&::after
+	{
+		transform: rotate(-45deg);
+    }
+
+    &.pointy 
+    {
+	    &::before, &::after
+	    {
+	    	width: 200%;
+	    	left: -50%;
+	    }
+	}
+
+}
+

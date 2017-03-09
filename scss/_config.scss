@@ -1,0 +1,120 @@
+// =========================================================
+// Global Config
+// =========================================================
+
+// Font Weights
+
+$font-weight--thin               : 100;
+$font-weight--light              : 300;
+$font-weight--medium             : 400;
+$font-weight--bold               : 700;
+$font-weight--ultra-bold         : 900;
+
+// Descriptive Base Colors
+
+$white                           : #FFFFFF;
+$black                           : #373737;
+$grey                            : #797e83;
+
+
+// Color Usage
+
+$color-text                       : #273469;
+$color-links                      : #5EDBCC; 
+
+
+
+
+// Header Colors
+
+ // top bar
+$header_top_bar_text              : #757575;
+$header_top_bar_links             : #212121;
+
+
+$header_text              : #757575;
+$header_links             : #212121;
+
+
+
+// Path to Assets
+
+$path--rel                       : '../assets/images';
+
+
+// Main fonts
+
+$main-font        : 'Poppins', sans-serif;
+$secondary-font   : 'Open-Sans', sans-serif;
+
+// Copied from alternaive
+
+
+$global-width: 1170px;
+
+$grid-column-gutter: 30px;
+$grid-column-align-edge: false;
+
+$header-sizes: (
+  small: (
+    'h1': 30,
+    'h2': 26,
+    'h3': 22,
+    'h4': 18,
+    'h5': 16,
+    'h6': 14,
+  ),
+  medium: (
+    'h1': 36,
+    'h2': 30,
+    'h3': 24,
+    'h4': 22,
+    'h5': 18,
+    'h6': 14,
+  ),
+  large: (
+    'h1': 42,
+    'h2': 36,
+    'h3': 28,
+    'h4': 22,
+    'h5': 18,
+    'h6': 14,
+  )
+);
+
+$header-font-weight: bold;
+$header-lineheight: 1.2;
+
+$paragraph-lineheight: 1.8;
+
+// Forms
+
+$form-label-font-size: rem-calc(16);
+$form-label-line-height: rem-calc(40);
+
+$input-background: #f1f1f1;
+$input-background-focus: #f1f1f1;
+
+$input-border: 1px solid #f1f1f1;
+$input-border-focus: 1px solid #000;
+
+$input-shadow: 0;
+$input-shadow-focus: 0;
+
+$input-font-size: rem-calc(16);
+
+$input-radius: 3px;
+
+$select-background: #f1f1f1;
+$select-triangle-color: #bbb;
+$select-radius: 3px;
+
+$primary-color                : #000;
+$secondary-color              : #333;
+
+$secondary-color-dark         : #333;
+$secondary-color-medium       : #666;
+$secondary-color-light        : #bbb;
+$secondary-color-ultra-light  : #eee;
+
+$sidebar_bg_color             : #f7f7f7;

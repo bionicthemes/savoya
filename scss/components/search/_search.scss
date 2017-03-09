@@ -1,0 +1,71 @@
+.header-search
+{
+	height: 100%; 
+	position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fff;
+    padding: 0 rem-calc(20); 
+    opacity: 0;
+    z-index: 1;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateZ(0);
+    transition: opacity .3s 0s,visibility 0s .3s,height .4s ease 0s;
+
+         
+    &.active
+    {
+    	opacity: 1;
+	    visibility: visible;
+	    transform: translateZ(0);
+	    transition: opacity .3s 0s,visibility 0s 0s,height .4s ease 0s;
+    }
+    
+    form
+    {
+    	position: relative;
+    	height: 100%;
+    	// line-height: 100px;  
+    	
+    	input
+    	{
+		    
+		    height: 100%; 
+		    margin: 0 auto;
+		    font-size: rem-calc(24);
+		    border: 0;
+		    background-color: transparent;
+		    color: #373737;
+		    outline: none;
+		    box-shadow: none; 
+		    padding-left: 0;
+		    font-weight: bold;
+		    
+		    @include placeholder()
+		    {
+		    	opacity: 1; 
+		    }
+		    
+		    @media #{$medium-up} 
+		    {
+		    	font-size: rem-calc(28);
+		    }
+
+		    @media #{$large-up} 
+		    {
+		    	font-size: rem-calc(34);
+		    }
+		    
+		    &:focus
+		    {
+		    	outline: none; 
+		    	box-shadow: none; 
+		    	border: none; 
+		    }
+    	}
+    }
+
+}

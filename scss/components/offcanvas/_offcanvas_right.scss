@@ -1,0 +1,114 @@
+.offcanvas-right
+{
+	position: fixed;
+	top: 0;
+	right: -100%;
+	z-index: 9999;
+	height: 100%;
+	overflow: hidden;
+	width: 80%; 
+	transition: all ease .5s;
+	box-shadow: -10px 0px 102px -3px rgba(50, 50, 50, 0.75);
+	z-index: 9999;
+	background: #FFF; 
+	
+	@media #{$medium-up}
+	{
+		width: 360px; 
+	}
+
+	&.active
+    {
+    	right: 0;  	   	
+    }
+	
+	.admin-bar & 
+	{
+		top: 46px;
+		
+		@include breakpoint(large)
+		{
+			top: 32px; 
+		} 
+	}
+
+	.offcanvas_close
+	{
+		position: absolute;
+	    right: 25px;
+	    top: 6px;
+	    z-index: 9;
+	    cursor: pointer; 
+	    color: #3496E8; 
+	}
+
+	.offcanvas-right-header
+	{
+		background: #FFF;
+		padding: rem-calc(30);  
+	}
+
+	.offcanvas-menu-content
+	{
+    	height: 100vh; 
+    	
+    	.offcanvas-header
+    	{
+    		ul
+    		{
+    			li.cta
+    			{
+    				.free-quote
+    				{
+    					@include breakpoint(medium down)
+    					{
+    						display: block;
+    						margin: 0px 15px 23px; 
+    					}
+    				}
+    			}
+    		}
+    	}
+		
+		.offcanvas-navigation 
+		{
+			background: #FFF;
+			color: #3496E8; 
+			text-transform: uppercase; 
+							
+			&.mm-menu
+			{
+				
+				li
+				{
+					transform: translateX(0);
+					opacity: 1;
+				    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+				    font-size: rem-calc(16); 
+				    padding: rem-calc(10) 0; 
+				    
+				    &:hover
+				    {
+				    	transition-delay: 0;
+				    	background: lighten(#3496E8, 20%);
+				    }
+				    
+				  
+				}
+
+				.mm-title
+				{
+					color: #3496E8;
+					font-weight: bold; 
+				}
+
+				.mm-listview>li:not(.mm-divider):after
+				{
+					left: 0;
+				}
+			}	
+
+		}
+	}
+
+}

@@ -1,0 +1,13 @@
+.site-footer {
+  margin-top: rem-calc(40);
+  padding: rem-calc(40) 0 0; }
+  .site-footer .footer-style-3 {
+    padding-bottom: rem-calc(40); }
+    .site-footer .footer-style-3 ul {
+      list-style-type: none;
+      margin: 0; }
+      .site-footer .footer-style-3 ul ul {
+        margin-left: rem-calc(10); }
+  .site-footer .footer-text {
+    text-align: center;
+    padding: rem-calc(10) 0; }
