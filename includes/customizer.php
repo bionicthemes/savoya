@@ -359,7 +359,7 @@ if ( ! function_exists ('theme_custom_styles') ) {
 		}
 
 
-		.site-header .header-container .main-navigation > ul > li > a
+		.site-header .header-container .main-navigation > ul > li:not(.menu-item-btn) > a
 		{
 			line-height: <?php echo $custom_header_height .'px !important';  ?>; 
 			height: <?php echo $custom_header_height .'px !important';  ?>;    

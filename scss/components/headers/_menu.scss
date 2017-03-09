@@ -61,6 +61,26 @@
 				}
 			}
 
+			&.menu-item-btn
+			{
+				margin-left: rem-calc(20px); 
+				
+				a
+				{
+					background: red; 
+					color: $white; 
+					padding: rem-calc(5px) rem-calc(20); 
+					border-radius: 50px; 
+					
+					&:hover
+					{
+						color: $white; 
+						opacity: 1; 
+						background: $grey; 
+					}
+				} 
+			}
+
 			// Flyout Menu
 
 			&:not(.megamenu-item) 

@@ -2549,6 +2549,17 @@ cite {
             text-decoration: inherit;
             content: "\f067";
             margin-left: 1.25rem; }
+          .site-header.header-style-1 .header-container .main-navigation > ul > li.menu-item-btn {
+            margin-left: 1.25rem; }
+            .site-header.header-style-1 .header-container .main-navigation > ul > li.menu-item-btn a {
+              background: red;
+              color: #FFFFFF;
+              padding: 0.3125rem 1.25rem;
+              border-radius: 50px; }
+              .site-header.header-style-1 .header-container .main-navigation > ul > li.menu-item-btn a:hover {
+                color: #FFFFFF;
+                opacity: 1;
+                background: #797e83; }
           .site-header.header-style-1 .header-container .main-navigation > ul > li:not(.megamenu-item) {
             position: relative; }
             .site-header.header-style-1 .header-container .main-navigation > ul > li:not(.megamenu-item) > ul:after {
