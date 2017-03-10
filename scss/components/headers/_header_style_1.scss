@@ -6,9 +6,8 @@
 {
 	position: relative; 
 	transition: height .4s ease,opacity .3s ease;
-	z-index: 2;
+	z-index: 1;
 	font-family: $main-font;
-	box-shadow: 0 0 0 4px rgba(66,48,58,0.08);
 	@include clearfix();
 	
 	&.header-style-1
@@ -121,6 +120,7 @@
 			{
 
 				display: none;	
+				 
 				
 				@include breakpoint(large)
 				{
@@ -129,14 +129,16 @@
 					vertical-align: middle;
 					text-align: right;
 					width: rem-calc(120); 
+					
 				}
 
 				.header-icons
 				{
-					padding-left: rem-calc(30);   
+					padding-left: rem-calc(30);  
 					
 					li
 					{
+						
 						a
 						{
 							.shopping_bag_items_number

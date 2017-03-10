@@ -2,13 +2,6 @@
 // Utilities
 // =========================================================
 
-// Import if Google Fonts URL is defined
-
-@if variable-exists(font-url--google) {
-	@import url($font-url--google);
-}
-
-
 // Mixins
 
 @mixin img-replace($img, $width, $height, $display : block) {
@@ -82,13 +75,15 @@
 }
 
 
-@mixin transition($element,$time, $mode) {
+@mixin transition($element,$time, $mode: ease) {
 	transition: $element $time $mode;
 }
 
 
 // Mixin Clearfix
-@mixin clearfix() {
+
+@mixin clearfix() 
+{
 	&:after
 	{
 		content: "";
@@ -108,10 +103,303 @@
 // Vertical Align
 
 
-@mixin vertical-align($position: absolute) {
+@mixin vertical-align($position: absolute) 
+{
   position: $position;
   top: 50%;
-  -webkit-transform:  perspective(1px) translateY(-50%);
-  -ms-transform:  perspective(1px) translateY(-50%);
   transform : perspective(1px) translateY(-50%);
+}
+
+@keyframes menu_animation 
+{
+	0% 
+	{
+		opacity: 0;
+		margin: 50px 0 0 0;
+	}
+
+	100% 
+	{
+		opacity: 1;
+		margin: 0;
+	}
+}
+
+// Icons Search and Close
+
+$stroke: .1;
+$stroke-em: $stroke * 1em;
+$sqrt2: 1.41421356237;
+$cos45: 0.70710678118;
+$transition-duration: .5s;
+
+%icon 
+{
+	display: inline-block;
+	position: relative;
+	height: rem-calc(18);
+	width: rem-calc(18);
+	cursor: pointer;
+}
+
+  
+%icon-2
+{
+	@extend %icon;
+	&::before,
+	&::after
+	{
+		content: '';
+		position: absolute;
+		transition: all ease-in-out $transition-duration;
+	}
+
+}
+
+  
+.icon-search
+{
+	$glass-ratio: 3/5;
+	$glass-size: percentage(2 * $glass-ratio / (1 + $cos45));
+	$handle-length: percentage((1 - $glass-ratio) * $sqrt2);
+
+	@extend %icon-2;
+
+	&::before
+	{
+		box-sizing: border-box;
+		border: $stroke-em solid;
+		border-radius: 50%;
+		height: $glass-size;
+		width: $glass-size;
+		top: 0;
+		left: 0;
+	}
+
+
+	&::after
+	{
+		border-top: 2 * $stroke-em solid;
+		border-radius: 0 $stroke-em $stroke-em 0;
+		height: 0px;
+		width: calc(#{$handle-length} + #{$stroke-em / 2});
+		transform: rotate(45deg) translate(-$stroke-em, -$stroke-em);
+		transform-origin: 0 0;
+		top: percentage($glass-ratio);
+		left: percentage($glass-ratio);
+	}
+
+}
+
+
+.icon-close
+{
+	@extend %icon-2;
+
+	&::before,
+	&::after
+	{
+		border: 0 solid;
+		border-top: $stroke-em solid;
+		left: 0;
+		top: .5em - $stroke-em/2;
+		height: 0;
+		width: 1em;
+		border-radius: $stroke-em/2;
+	}
+
+	&::before
+	{
+		transform: rotate(180deg - 45deg) scaleX($sqrt2 - $stroke/2);
+
+	}
+
+	&::after
+	{
+		transform: rotate(45deg) scaleX($sqrt2 - $stroke/2);
+
+	}
+
+}
+
+
+
+
+
+
+$fs-base : 16px; // define value for 1rem
+$s-icon  : 2rem; // change this value to control icon size
+ 
+
+// ========================================
+// Helper / Convert px to em
+// ========================================
+
+@function em($pixels, $context: $fs-base) {
+  @return #{$pixels/$context}em;
+}
+
+// ========================================
+// Icon Component
+// ========================================
+
+$c-icon        : #f0f0f0;
+$s-icon-bar    : 2px;
+$s-icon-radius : 2px;
+
+.icon {
+  position: relative;
+  cursor: pointer;
+
+  &:before,
+  &:after {
+    content: '';
+  }
+
+  span,
+  &:before,
+  &:after {
+    position: absolute;
+    display: block;
+    background-color: $c-icon;
+    border-radius: em($s-icon-radius);
+    transition: all .2s;
+  }
+  
+// ========================================
+// Icon Component / Hamburger
+// ========================================
+  
+  &--hamburger,
+  &--hamburger-cross {
+    width: 1em * 1.5;
+    height: 1em;
+    
+    span,
+    &:before,
+    &:after {
+      left: 0;
+      transform: translate3D(0, 0, 0);
+      width: 100%;
+      height: em($s-icon-bar);
+    }
+
+    &:before {
+      top: 0;
+    }
+
+    span {
+      top: 50%;
+      transform: translate3D(0, -50%, 0);
+    }
+
+    &:after {
+      bottom: 0;
+    }
+    
+    &:hover {
+      &:before {
+        top: -10%;
+      }
+
+      &:after {
+        bottom: -10%;
+      }
+    }
+  }
+  
+  &--hamburger {
+    &.is-active {
+      &:before {
+        top: 50%;
+        transform: translate3D(0, -50%, 0);
+      }
+
+      &:after {
+        bottom: 50%;
+        transform: translate3D(0, 50%, 0);
+      }
+    }
+  }
+  
+  &--hamburger-cross {
+    &:before,
+    &:after {
+      transform-origin: center;
+    }
+    
+    &.is-active {
+      &:before {
+        top: 50%;
+        transform: translate3D(0, -50%, 0) rotate(45deg)
+      }
+
+      span {
+        opacity: 0;
+      }
+
+      &:after {
+        bottom: 50%;
+        transform: translate3D(0, 50%, 0) rotate(-45deg);
+      }
+    }
+  }
+  
+// ========================================
+// Icon Component / Plus
+// ========================================
+  
+  &--plus,
+  &--plus-cross {
+    width: 1em;
+    height: 1em;
+    
+    &:before {
+      top: 50%;
+      left: 0;
+      transform: translate3D(0, -50%, 0) rotate(0);
+      width: 100%;
+      height: em($s-icon-bar);
+    }
+
+    &:after {
+      top: 50%;
+      left: 50%;
+      transform: translate3D(-50%, -50%, 0) rotate(0);
+      width: em($s-icon-bar);
+      height: 100%;
+    }
+  }
+  
+  &--plus {
+    &.is-active {
+      &:before {
+        transform: translate3D(0, -50%, 0) rotate(180deg);
+      }
+
+      &:after {
+        transform: translate3D(-50%, -50%, 0) rotate(90deg);
+      }
+    }
+  }
+  
+  &--plus-cross {
+    &:before,
+    &:after {
+      transform-origin: center;
+    }
+    
+    &.is-active {
+      &:before {
+        transform: translate3D(0, -50%, 0) rotate(135deg);
+      }
+
+      &:after {
+        transform: translate3D(-50%, -50%, 0) rotate(135deg);
+      }
+    }
+  }
+
+
+  
 }

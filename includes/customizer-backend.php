@@ -1,37 +1,21 @@
 <?php
  
-// Customizer / WP Methods
+/**********************************************
+ *********** Savoya Theme Customizer **********
+ *********************************************/
 
+
+//remove default wordpress customizer options
 add_action('customize_register','savoya');
 function savoya( $wp_customize ) {
-    
     // Remove Sections
-
     $wp_customize->remove_section('colors');
     $wp_customize->remove_section('background_image');
     $wp_customize->remove_section('header_image');
-
-
     // Remove Control
-
     $wp_customize->remove_control('display_header_text');
 
 }
-
-// Remove Customize Pages
-
-add_action('admin_menu', 'remove_customize_pages');
-function remove_customize_pages(){
-    global $submenu;
-    //echo "<pre>";
-    //print_r($submenu);
-    //echo "</pre>";
-    unset($submenu['themes.php'][15]); // remove Header link
-    unset($submenu['themes.php'][20]); // remove Background link
-}
-
-
-
 
 Kirki::add_config( 'savoya', array(
     'capability'    => 'edit_theme_options',
@@ -42,7 +26,7 @@ Kirki::add_config( 'savoya', array(
 
 
 /**********************************************
- * Add Panels
+ *********** Add Panels ***********************
  *********************************************/
 Kirki::add_panel( 'header_panel_styles', array(
     'priority'    => 10,
@@ -85,7 +69,7 @@ Kirki::add_section( 'header', array(
 
 // Header Layout 
 Kirki::add_section( 'header_section_layout', array(
-    'title'          => __( 'Header Layout', 'savoya' ),
+    'title'          => __( 'Header Options', 'savoya' ),
     'panel'          => 'header_panel_styles', // Not typically needed.
     'priority'       => 160,
     'capability'     => 'edit_theme_options',
@@ -103,7 +87,7 @@ Kirki::add_section( 'header_elements', array(
 
 // Header Stickiness
 Kirki::add_section( 'header_stickiness', array(
-    'title'          => __( 'Header Stickiness', 'savoya' ),
+    'title'          => __( 'Header Sticky', 'savoya' ),
     'panel'          => 'header_panel_styles', // Not typically needed.
     'priority'       => 160,
     'capability'     => 'edit_theme_options',
@@ -117,20 +101,12 @@ Kirki::add_section( 'fonts', array(
     'capability'     => 'edit_theme_options',
 ) );
 
-// Header Transparency
-Kirki::add_section( 'header_transparency', array(
-    'title'          => esc_attr__( 'Header Transparency', 'savoya' ),
-    'priority'       => 10,
-    'capability'     => 'edit_theme_options',
-    'panel'          => 'header_panel_styles',
-) );
-
 
 // Custom Code Section
 
 Kirki::add_section( 'custom_code', array(
     'title'          => esc_attr__( 'Custom Code', 'savoya' ),
-    'priority'       => 1,
+    'priority'       => 10,
     'capability'     => 'edit_theme_options',
 ) );
 
@@ -171,9 +147,9 @@ Kirki::add_field( '', array(
 Kirki::add_field( '', array(
     'type'        => 'radio-image',
     'setting'     => 'header_layout',
-    'label'       => __( 'Header Style', 'savoya' ),
+    'label'       => __( 'Header Version', 'savoya' ),
     'section'     => 'header_section_layout',
-    'default'     => __( 'This is some default text', 'savoya' ),
+    'description' => 'Here you can change the header version',
     'priority'    => 10,
     'default'     => 'style-1',
     'choices'     => array(
@@ -183,7 +159,6 @@ Kirki::add_field( '', array(
     ),
 
 ) );
-
 
 
 /*******************************************
@@ -548,74 +523,6 @@ Kirki::add_field( '', array(
     ),
 
 ) );
-
-// Header Transparency
-Kirki::add_field( '', array(
-    'type'        => 'switch',
-    'settings'    => 'header_transparent',
-    'label'       => esc_attr__( 'Transparent Header', 'savoya' ),
-    'description' => __( 'Global Option', 'savoya' ),
-    'help'        => __( 'This option here will be inherited by all pages that do not have a different setting applied individually for the header.', 'savoya' ),
-    'section'     => 'header_transparency',
-    'default'     => false,
-    'priority'    => 10,
-) );
-
-
-Kirki::add_field( '', array(
-    'type'        => 'radio-buttonset',
-    'settings'    => 'header_transparent_scheme',
-    'label'       => esc_attr__( 'Default Color Scheme', 'savoya' ),
-    'description' => __( 'for the Transparent Header', 'savoya' ),     
-    'help'        => __( 'The transparent header comes with two different color schemes: Light and Dark. For both you can choose to have a different color for the header content (navigation, icons, etc) and even a different logo. The option here sets the one you want to use as the default. The other can be set as an exception to be used by some pages only.', 'savoya' ),
-    'section'     => 'header_transparency',
-    'default'     => 'dark',
-    'priority'    => 10,
-    'choices'     => array(
-        'light'   => esc_attr__( 'Light', 'savoya' ),
-        'dark'    => esc_attr__( 'Dark', 'savoya' ),
-    ),
-) );
-
-
-Kirki::add_field( '', array(
-    'type'        => 'color',
-    'settings'    => 'header_transparent_light_color',
-    'label'       => esc_attr__( 'Light Scheme: Color', 'savoya' ),
-    'help'        => __( 'If the page you are working on has a dark background, using a dark color for the menu items would make it unreadable and that is where the Light color scheme comes in. (E.g.: White text on a Black background.)' , 'savoya' ),
-    'section'     => 'header_transparency',
-    'default'     => '#fff',
-    'priority'    => 10,
-) );
-
-Kirki::add_field( '', array(
-    'type'        => 'image',
-    'settings'    => 'header_transparent_light_logo',
-    'label'       => __( 'Light Scheme: Alternative Logo', 'savoya' ),
-    'section'     => 'header_transparency',
-    'default'     => '',
-    'priority'    => 10,
-) );
-
-Kirki::add_field( '', array(
-    'type'        => 'color',
-    'settings'    => 'header_transparent_dark_color',
-    'label'       => esc_attr__( 'Dark Scheme: Color', 'savoya' ),
-    'help'        => __( 'If the page you are working on has a light backgeround, using a light color for the menu items as well would make it unreadable and that is where the Dark color scheme comes in. (E.g.: Black text on a White background.)' , 'savoya' ),
-    'section'     => 'header_transparency',
-    'default'     => '#000',
-    'priority'    => 10,
-) );
-
-Kirki::add_field( '', array(
-    'type'        => 'image',
-    'settings'    => 'header_transparent_dark_logo',
-    'label'       => __( 'Dark Scheme: Alternative Logo', 'savoya' ),
-    'section'     => 'header_transparency',
-    'default'     => '',
-    'priority'    => 10,
-) );
-
 
 
 /*******************************************

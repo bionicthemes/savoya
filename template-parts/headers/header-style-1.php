@@ -8,10 +8,6 @@ global $custom_header_logo,
 	   $custom_header_widget,
 	   $custom_header_sticky,
 	   $custom_header_sticky_logo,
-	   $custom_header_transparent_scheme,
-	   $custom_header_transparent,
-	   $custom_header_transparent_light_logo,
-	   $custom_header_transparent_dark_logo,
 	   $custom_header_top_bar_phone;
 
 
@@ -19,24 +15,17 @@ global $custom_header_logo,
         /********** Header Transparency Logo *******/
         /*******************************************/
 
-        $original_logo = $custom_header_logo; 
-
-        if ($custom_header_transparent == 1)
-        {
-            if ($custom_header_transparent_scheme == 'light')
-            {
-                $custom_header_logo = $custom_header_transparent_light_logo;
-            }
-            else 
-            {
-                $custom_header_logo = $custom_header_transparent_dark_logo;
-            }
-        }
-
 ?>
 
 
 <?php get_template_part( 'template-parts/includes/header', 'top-bar' ); ?>
+
+<!-- Search -->
+	
+<div class="header-search">
+	<?php get_search_form(); ?>
+</div>
+<span class="icon-search"></span>
 
 
 <header 
@@ -48,11 +37,6 @@ global $custom_header_logo,
 
 		<!-- Header Search -->
 
-		<div class="header-search">
-
-			<?php get_search_form(); ?>
-			
-		</div>	
 
 		<!-- Site Logo -->
 
@@ -113,8 +97,10 @@ global $custom_header_logo,
 
                 <?php if (  $custom_header_search_state == 1 ) : ?>
                 	
-                	<li href="#" class="search-icon">
-						<a href=""><i class="fa fa-search" aria-hidden="true"></i></a>
+                	<li class="search-icon">
+						
+						<!-- <span class="icon-search"></span> -->
+						
 					</li>
 
 				<?php endif; ?>

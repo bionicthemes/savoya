@@ -27,12 +27,6 @@ if ( ! function_exists ('theme_custom_styles') ) {
 		   $custom_header_sticky_text_color,
 		   $custom_header_sticky_links_color,
 		   $custom_header_sticky_height,
-		   $custom_header_transparent,
-		   $custom_header_transparent_scheme,
-		   $custom_header_transparent_light_color,
-		   $custom_header_transparent_light_logo,
-		   $custom_header_transparent_dark_color,
-		   $custom_header_transparent_dark_logo,
 		   $custom_header_top_bar_activate,
 
 		   // Top Bar
@@ -125,14 +119,6 @@ if ( ! function_exists ('theme_custom_styles') ) {
 			$custom_footer_links_color 			= savoya_theme_option( 'footer_links_color', 				'#169099' );
 			$custom_footer_font_size 			    = savoya_theme_option( 'footer_font_size', 				'14' );
 
-			
-
-			$custom_header_transparent 				= savoya_theme_option( 'header_transparent', 				0 );
-			$custom_header_transparent_scheme		= savoya_theme_option( 'header_transparent_scheme', 		'dark' );
-			$custom_header_transparent_light_color	= savoya_theme_option( 'header_transparent_light_color', 	'#FFFFFF' );
-			$custom_header_transparent_light_logo	= savoya_theme_option( 'header_transparent_light_logo', 	'' );
-			$custom_header_transparent_dark_color	= savoya_theme_option( 'header_transparent_dark_color', 	'#000000' );
-			$custom_header_transparent_dark_logo	= savoya_theme_option( 'header_transparent_dark_logo', 		'' );
 
 			// Top Bar
 
@@ -350,8 +336,6 @@ if ( ! function_exists ('theme_custom_styles') ) {
 		.site-header.header-style-3 .header-container .header-icons-mobile > li > a,
 		.site-header.header-style-3 .header-container .header-tools > ul > li > a,
 		.site-header.header-style-3 .header-container .header-widget,
-
-		.header-search form input
 		{
 			font-size: <?php echo $custom_header_font_size . 'px'; ?>;                /* Header Font-Size */
 			color: <?php echo $custom_header_text_color; ?>;                       /* Header Color */

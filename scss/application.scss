@@ -23,5 +23,8 @@
 
 .page-wrapper
 {
-	display: none;
+	@include transition(all, .5s);
+	position: relative;
+    transition: transform 0.5s;
+    display: none;
 }
