@@ -2808,6 +2808,8 @@ cite {
                   transition: padding 0.15 ease-in; }
                   .site-header.header-style-1 .header-container .main-navigation > ul > li:not(.megamenu-item) ul li a:hover {
                     padding-left: 10px; }
+                  .site-header.header-style-1 .header-container .main-navigation > ul > li:not(.megamenu-item) ul li a i {
+                    padding-right: 5px; }
                 .site-header.header-style-1 .header-container .main-navigation > ul > li:not(.megamenu-item) ul li ul {
                   left: 100%;
                   top: -20px; }
@@ -2822,6 +2824,8 @@ cite {
             transition: padding 0.15 ease-in; }
             .site-header.header-style-1 .header-container .main-navigation > ul > li.megamenu-item ul li a:hover {
               padding-left: 10px; }
+            .site-header.header-style-1 .header-container .main-navigation > ul > li.megamenu-item ul li a i {
+              padding-right: 5px; }
           .site-header.header-style-1 .header-container .main-navigation > ul > li.megamenu-item > ul {
             width: 100%;
             margin: 0;
@@ -2968,7 +2972,7 @@ cite {
 
 .header-search {
   position: fixed;
-  z-index: 1;
+  z-index: -1;
   top: 0;
   left: 0;
   width: 100%;

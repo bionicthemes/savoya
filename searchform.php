@@ -27,8 +27,3 @@
 	<input type="search" class="search-field" value="<?php echo get_search_query(); ?>" name="s" />
 	<span class="search_info"><?php echo esc_html('Type and press enter to search', 'savoya'); ?></span>
 </form>
-
-
-
-
-

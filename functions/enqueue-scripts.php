@@ -17,16 +17,8 @@ function savoya_scripts() {
 
 
 	wp_enqueue_script('modernizr-custom', get_template_directory_uri() . '/js/modernizr.custom.js', array('jquery'), '1.0', TRUE);
-
 	wp_enqueue_script('jquery-mm-menu', get_template_directory_uri() . '/js/jquery.mmenu.all.min.js', array('jquery'), '1.0', TRUE);
-
-	wp_enqueue_script('jquery-slick', get_template_directory_uri() . '/js/slick.min.js', array('jquery'), '1.0', TRUE);
-
-	wp_enqueue_script('lightbox', get_template_directory_uri() . '/js/lightbox.min.js', array('jquery'), '1.0', TRUE);
-
-
 	wp_enqueue_script('admin', get_template_directory_uri() . '/js/admin.js', array('jquery'), '1.0', TRUE);
-
 	wp_enqueue_script('savoya-main-js', get_template_directory_uri() . '/js/main.js', array('jquery'), '1.0', TRUE);
 
 
@@ -92,7 +84,6 @@ if( !function_exists('savoya_admin_load_scripts') ) {
 	}
 	add_action( 'admin_enqueue_scripts', 'savoya_admin_load_scripts', 200 );
 }
-
 
 
 
