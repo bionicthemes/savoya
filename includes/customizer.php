@@ -43,6 +43,11 @@ if ( ! function_exists ('theme_custom_styles') ) {
 		   $custom_header_top_bar_paddingTB,
 		   $custom_header_top_bar_paddingRL,
 
+		   // Search Overlay
+
+		   $custom_search_overlay_text_color,
+		   $custom_search_overlay_font_size,
+
 
 			$fa_facebook,
 			$fa_twitter,
@@ -137,6 +142,11 @@ if ( ! function_exists ('theme_custom_styles') ) {
 
 		    $custom_header_top_bar_paddingTB		= savoya_theme_option( 'header_top_bar_paddingTB', 0);
 		    $custom_header_top_bar_paddingRL		= savoya_theme_option( 'header_top_bar_paddingRL', '10');
+
+
+			$custom_search_overlay_text_color 		= savoya_theme_option( 'search_overlay_text_color ',    '#eaba82');
+			$custom_search_overlay_font_size		= savoya_theme_option( 'search_overlay_font_size',          '100');
+
 
 
 		    // Top Bar Social MEdia
@@ -271,12 +281,29 @@ if ( ! function_exists ('theme_custom_styles') ) {
 
 
 		/*******************************************************
-		/******** Customizing Elements *****************
+		/******** General Settings *****************
 		/*******************************************************/
 
+		/***********************************
+		/********** Search Overlay *****************
+		/**********************************/
+		
+		.header-search.active form input
+		{
+			color: <?php echo $custom_search_overlay_text_color;?>;
+			font-size: <?php echo $custom_search_overlay_font_size .'px'; ?>;
+			border-bottom-color: <?php echo $custom_search_overlay_text_color;?>;
+		}
 
-		/*******************************************************
-		/******** Customizing Elements *****************/
+		.header-search.active form .search_info
+		{
+			color: <?php echo $custom_search_overlay_text_color;?>;
+		}
+
+
+		/***********************************
+		/********** Header Top Bar *****************
+		/**********************************/
 
 		.header-top-bar
 		{
@@ -303,8 +330,6 @@ if ( ! function_exists ('theme_custom_styles') ) {
 			color: <?php echo $custom_header_top_bar_hover_color; ?>;
 		}
 
-
-		
 
 		/***********************************
 		/********** HEADER *****************
@@ -384,9 +409,7 @@ if ( ! function_exists ('theme_custom_styles') ) {
 		{
 			background-color: <?php echo $custom_header_sticky_links_color;?>;
 		}
-
-
-
+	
 
 
 		/***********************************

@@ -10,12 +10,9 @@ global $custom_header_logo,
 	   $custom_header_sticky_logo,
 	   $custom_header_top_bar_phone;
 
-
-        /*******************************************/
-        /********** Header Transparency Logo *******/
-        /*******************************************/
-
 ?>
+
+
 
 
 <?php get_template_part( 'template-parts/includes/header', 'top-bar' ); ?>
@@ -25,7 +22,6 @@ global $custom_header_logo,
 <div class="header-search">
 	<?php get_search_form(); ?>
 </div>
-<span class="icon-search"></span>
 
 
 <header 
@@ -34,9 +30,6 @@ global $custom_header_logo,
 	<!-- Header Navigation -->
 
 	<div class="header-container">
-
-		<!-- Header Search -->
-
 
 		<!-- Site Logo -->
 
@@ -58,9 +51,7 @@ global $custom_header_logo,
 		<!-- OffCanvas Menu Open Icon -->
 
 		<div class="offcanvas-menu-icon hide-for-large">
-			<a class="offcanvas-icon-open" href="#">
-				<i class="fa fa-2x fa-bars" aria-hidden="true"></i>
-			</a>
+			
 		</div>
 
 		<!-- Main Navigation -->
@@ -100,11 +91,12 @@ global $custom_header_logo,
                 	<li class="search-icon">
 						
 						<!-- <span class="icon-search"></span> -->
+						<span id="search" class="icon-search"></span>
+
 						
 					</li>
 
 				<?php endif; ?>
-				
 
 			</ul>
 		

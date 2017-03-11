@@ -6,7 +6,7 @@
 {
 	position: relative; 
 	transition: height .4s ease,opacity .3s ease;
-	z-index: 1;
+	z-index: 2;
 	font-family: $main-font;
 	@include clearfix();
 	
@@ -118,20 +118,13 @@
 
 			.header-tools
 			{
-
-				display: none;	
 				 
-				
-				@include breakpoint(large)
-				{
-					text-transform: capitalize; 
-					display: table-cell;
-					vertical-align: middle;
-					text-align: right;
-					width: rem-calc(120); 
+				text-transform: capitalize; 
+				display: table-cell;
+				vertical-align: middle;
+				text-align: right;
+				width: rem-calc(120); 
 					
-				}
-
 				.header-icons
 				{
 					padding-left: rem-calc(30);  

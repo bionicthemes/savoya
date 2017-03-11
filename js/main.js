@@ -8,11 +8,11 @@ jQuery(function($) {
 		closeBtn 			= $('.header-tools .search-icon > span.icon-close');
 
 
-
 	// open search 	
 	$(document).on('click', '.icon-search', function() {
 		$(this).attr('class', 'icon-close');
 		$('.page-wrapper').addClass('moveAtSearch');
+
 		headerSearch.addClass('active');
 		setTimeout(function() {
 			$(".header-search.active input[type='search']").focus();
@@ -51,14 +51,14 @@ jQuery(function($) {
 		    }
 		}
 
-		// if (headerSearch.hasClass('active'))
-  //       {
-		//     if (!headerSearch.is(e.target) // if the target of the click isn't the quickCart...
-		//         && headerSearch.has(e.target).length === 0) // ... nor a descendant of the quickCart
-		//     {
-	 //        	headerSearch.removeClass('active');
-		//     }
-		// }
+		if (headerSearch.hasClass('active'))
+        {
+		    if (!headerSearch.is(e.target) // if the target of the click isn't the search...
+		        && headerSearch.has(e.target).length === 0) // ... nor a descendant of the search
+		    {
+	        	headerSearch.removeClass('active');
+		    }
+		}
 
 		if (offcanvasMinicart.hasClass('active'))
         {
@@ -121,12 +121,6 @@ jQuery(function($) {
 		if ( $element.hasClass('header-sticky') ) {
 			$element.toggleClass(className, $document.scrollTop() > 45);
 		}
-		// var siteHeader     = $('.site-header.sticky');
-		// var mainNavWrapper = $('.main-navigation');
-		// var mainNavMenu = $('.main-navigation > ul.menu');
-
-		// mainNavWrapper.height(siteHeader.height() + 2 ); 
-		// mainNavMenu.css('line-height', siteHeader.css('line-height')); 
 		
 	});
 
@@ -139,101 +133,7 @@ jQuery(function($) {
 		});
 
 
-      // Slider
-
-      	 // $('.slider-container').slick({});
-
-
-      	 $('.slider-container')
-		    .on('init', function(slick) {
-		        $('.slider-container').css({
-		        	'overflow' : 'visible', 'width' : 'auto'
-		        });
-		    })
-		    .slick({
-		        fade: true,
-		        focusOnSelect: true,
-		        lazyLoad: 'ondemand',
-		        speed: 3000,
-		        autoplay: true,
-		        autoplaySpeed: 3000
-	  		});
-	      
-
-     
-
-
-      // map
-
-      $('.maps').click(function () {
-		    $('.maps iframe').css("pointer-events", "auto");
-	  });
-
-	  $('.gallery').find('img').attr('data-lightbox', 'test');
-
-
-
-	  $('.gallery').find('a').each(function(i, v) {
-
-	  		$(this).attr('rel', 'lightbox');
-	  });
-
-
-	   
-
-	  $('li.cta .free-quote').click(function() {
-
-	  	$('.freequote-overlay').addClass('active');
-
-	  });
-
-
-
-	  $('.button.upload-form').click(function() {
-
-	  	$('.upload-overlay').addClass('active');
-
-	  });
-
-
-	   $('.btn-close-upload').click(function() {
-
-	  		if (   $('.upload-overlay').hasClass('active')  )
-	  		{
-	  			$('.upload-overlay').removeClass('active');
-	  		}
-	  });
-
-
-
-	  $('.custom-form-close-btn-1').click(function() {
-
-	  		if (   $('.freequote-overlay').hasClass('active')  )
-	  		{
-	  			$('.freequote-overlay').removeClass('active');
-	  		}
-	  });
-
-
-
-	  $(document).on('click', '.freequote-overlay', function(e) {
-
-	  	if (  $(this).is(e.target) ) {
-	  		$(this).removeClass('active');
-	  	}
-
-	  });
-
-	  $(document).on('click', '.upload-overlay', function(e) {
-
-	  	if (  $(this).is(e.target) ) {
-	  		$(this).removeClass('active');
-	  	}
-
-	  });
-
-
-
+   
 
 });
 
