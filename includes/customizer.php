@@ -23,11 +23,16 @@ if ( ! function_exists ('theme_custom_styles') ) {
 		   $custom_header_font_size,
 		   $custom_header_size,
 		   $custom_header_height,
+		   $custom_header_width,
 		   $custom_header_sticky_background_color,
 		   $custom_header_sticky_text_color,
 		   $custom_header_sticky_links_color,
 		   $custom_header_sticky_height,
 		   $custom_header_top_bar_activate,
+
+		   // Transparent
+
+		   $custom_header_transparent,
 
 		   // Top Bar
 		   $custom_header_top_bar_background_color,
@@ -45,8 +50,18 @@ if ( ! function_exists ('theme_custom_styles') ) {
 
 		   // Search Overlay
 
-		   $custom_search_overlay_text_color,
-		   $custom_search_overlay_font_size,
+		   $custom_header_search_text_color,
+		   $custom_header_search_font_size,
+
+
+		   // Main Menu
+
+		   $custom_header_sub_main_menu_bg_color,
+		   $custom_header_sub_main_menu_font_color,
+
+		   // Header Distance Top
+
+		   $custom_header_distance_top,
 
 
 			$fa_facebook,
@@ -113,6 +128,7 @@ if ( ! function_exists ('theme_custom_styles') ) {
 			$custom_header_sticky_text_color     	 = savoya_theme_option('header_sticky_text_color', '#FFFFFF');
 			$custom_header_sticky_links_color      	 = savoya_theme_option('header_sticky_links_color', '#169099');
 			$custom_header_sticky_height          	 = savoya_theme_option('header_sticky_height', '65');
+			$custom_header_width          	 		 = savoya_theme_option('header_width', '100');
 
 			// footer
 
@@ -127,10 +143,10 @@ if ( ! function_exists ('theme_custom_styles') ) {
 
 			// Top Bar
 
-			$custom_header_top_bar_background_color = savoya_theme_option('header_top_bar_background_color', '#05F9DF');
-			$custom_header_top_bar_text_color       = savoya_theme_option('header_top_bar_text_color', '#7f8c8d');
-			$custom_header_top_bar_links_color      = savoya_theme_option('header_top_bar_links_color', '#37474F');
-			$custom_header_top_bar_hover_color      = savoya_theme_option('header_top_bar_hover_color', '#546E7A');
+			$custom_header_top_bar_background_color = savoya_theme_option( 'header_top_bar_background_color', '#05F9DF');
+			$custom_header_top_bar_text_color       = savoya_theme_option( 'header_top_bar_text_color', '#7f8c8d');
+			$custom_header_top_bar_links_color      = savoya_theme_option( 'header_top_bar_links_color', '#37474F');
+			$custom_header_top_bar_hover_color      = savoya_theme_option( 'header_top_bar_hover_color', '#546E7A');
 			$custom_header_top_bar_phone            = savoya_theme_option( 'header_top_bar_phone', '+1-202-555-0121');
 		    $custom_header_top_bar_email            = savoya_theme_option( 'header_top_bar_email', 'website@website.com');
 		    $custom_header_top_bar_address          = savoya_theme_option( 'header_top_bar_address', '6 Poplar Way, Cranford, NJ, 07016');
@@ -144,8 +160,22 @@ if ( ! function_exists ('theme_custom_styles') ) {
 		    $custom_header_top_bar_paddingRL		= savoya_theme_option( 'header_top_bar_paddingRL', '10');
 
 
-			$custom_search_overlay_text_color 		= savoya_theme_option( 'search_overlay_text_color ',    '#eaba82');
-			$custom_search_overlay_font_size		= savoya_theme_option( 'search_overlay_font_size',          '100');
+		    // Search
+			$custom_header_search_text_color 			= savoya_theme_option( 'header_search_text_color', '#FFFFFF');
+			$custom_header_search_font_size				= savoya_theme_option( 'header_search_font_size',         		'100');
+
+
+			// Main Menu submenu
+
+			$custom_header_sub_main_menu_bg_color		= savoya_theme_option( 'header_sub_main_menu_bg_color',          '#373737');
+			$custom_header_sub_main_menu_font_color		= savoya_theme_option( 'header_sub_main_menu_font_color',         '#FFF');
+
+			$custom_header_distance_top					= savoya_theme_option( 'header_distance_top', '0');
+
+
+			// Transparent
+
+			$custom_header_transparent          		= savoya_theme_option ( 'header_transparent', 0);
 
 
 
@@ -285,19 +315,19 @@ if ( ! function_exists ('theme_custom_styles') ) {
 		/*******************************************************/
 
 		/***********************************
-		/********** Search Overlay *****************
+		/********** Search Overlay *********
 		/**********************************/
 		
 		.header-search.active form input
 		{
-			color: <?php echo $custom_search_overlay_text_color;?>;
-			font-size: <?php echo $custom_search_overlay_font_size .'px'; ?>;
-			border-bottom-color: <?php echo $custom_search_overlay_text_color;?>;
+			color: <?php echo $custom_header_search_text_color;?>;
+			font-size: <?php echo $custom_header_search_font_size .'px'; ?>;
+			border-bottom-color: <?php echo $custom_header_search_text_color;?>;
 		}
 
 		.header-search.active form .search_info
 		{
-			color: <?php echo $custom_search_overlay_text_color;?>;
+			color: <?php echo $custom_header_search_text_color;?>;
 		}
 
 
@@ -316,8 +346,6 @@ if ( ! function_exists ('theme_custom_styles') ) {
 
 			padding-left: <?php echo $custom_header_top_bar_paddingRL .'px'; ?>;
 			padding-right: <?php echo $custom_header_top_bar_paddingRL .'px'; ?>;
-			
-
 		}
 
 		.header-top-bar a
@@ -331,16 +359,32 @@ if ( ! function_exists ('theme_custom_styles') ) {
 		}
 
 
+
+		
+
 		/***********************************
 		/********** HEADER *****************
 		/**********************************/
+		
+		
 
-	
+			 <?php if ( $custom_header_transparent != "0" )  : ?>
+
+			 	
+			 	.site-header {
+					background-color:  transparent !important;
+			 	}
+
+
+		 	 <?php endif; ?>
+
 
 		.site-header
 		{
 			background-color: <?php echo $custom_header_background_color; ?>;         /* Header Background Color */
 			height: <?php echo $custom_header_height .'px !important';  ?>;                      /* Header Height */
+			width: <?php echo $custom_header_width .'% !important';  ?>;                      /* Header Height */
+			margin: 0 auto;
 		}		
 
 
@@ -409,8 +453,28 @@ if ( ! function_exists ('theme_custom_styles') ) {
 		{
 			background-color: <?php echo $custom_header_sticky_links_color;?>;
 		}
-	
 
+		.site-header .main-navigation > ul > li  ul
+		{
+			
+			background: <?php echo $custom_header_sub_main_menu_bg_color;?> !important;
+		}
+
+		.site-header.header-style-1 .header-container .main-navigation > ul > li:not(.megamenu-item) > ul:after
+		{
+			border-bottom-color: <?php echo $custom_header_sub_main_menu_bg_color;?> !important;
+		}
+
+		.site-header.header-style-1 .header-container .main-navigation > ul > li > ul  li  a
+		{
+			color: <?php echo $custom_header_sub_main_menu_font_color;?> !important;
+		}
+
+		.site-header
+		{
+			margin-top: <?php echo $custom_header_distance_top  . 'px';?>
+		}
+	
 
 		/***********************************
 		/********** BODY *****************

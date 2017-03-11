@@ -2679,6 +2679,8 @@ cite {
     content: "";
     display: block;
     clear: both; }
+  .site-header.pointer-events {
+    pointer-events: none; }
   .site-header.header-style-1 .header-container {
     width: 100%;
     height: 100%;
@@ -2959,7 +2961,8 @@ cite {
       display: table-cell;
       vertical-align: middle;
       text-align: right;
-      width: 7.5rem; }
+      width: 7.5rem;
+      pointer-events: all; }
       .site-header.header-style-1 .header-container .header-tools .header-icons {
         padding-left: 1.875rem; }
         .site-header.header-style-1 .header-container .header-tools .header-icons li a .shopping_bag_items_number {
@@ -2990,19 +2993,15 @@ cite {
   -ms-flex-align: center;
   align-items: center;
   text-align: center;
-  -webkit-animation: search_anmation_out;
-  animation: search_anmation_out;
-  -webkit-animation-duration: .55s;
-  animation-duration: .55s;
-  background: none; }
+  background: none;
+  opacity: 0;
+  visibility: hidden; }
   .header-search.active {
     z-index: 2;
     background: rgba(0, 0, 0, 0.8);
-    transition: background 0.35s ease-in-out;
-    -webkit-animation: menu_animation;
-    animation: menu_animation;
-    -webkit-animation-duration: .55s;
-    animation-duration: .55s; }
+    opacity: 1;
+    visibility: visible;
+    transition: background 0.35s ease-in-out; }
     .header-search.active form {
       opacity: 1; }
       .header-search.active form input {
@@ -3075,46 +3074,6 @@ cite {
 .moveAtSearch {
   -webkit-transform: scale3d(0.7, 0.7, 1);
   transform: scale3d(0.7, 0.7, 1); }
-
-@-webkit-keyframes search_anmation_in {
-  0% {
-    opacity: 0;
-    visibility: hidden;
-    background: none; }
-  100% {
-    opacity: 1;
-    visibility: visible;
-    background: rgba(0, 0, 0, 0.8); } }
-
-@keyframes search_anmation_in {
-  0% {
-    opacity: 0;
-    visibility: hidden;
-    background: none; }
-  100% {
-    opacity: 1;
-    visibility: visible;
-    background: rgba(0, 0, 0, 0.8); } }
-
-@-webkit-keyframes search_anmation_out {
-  0% {
-    opacity: 1;
-    visibility: visible;
-    background: rgba(0, 0, 0, 0.8); }
-  100% {
-    opacity: 0;
-    visibility: hidden;
-    background: none; } }
-
-@keyframes search_anmation_out {
-  0% {
-    opacity: 1;
-    visibility: visible;
-    background: rgba(0, 0, 0, 0.8); }
-  100% {
-    opacity: 0;
-    visibility: hidden;
-    background: none; } }
 
 .site-footer {
   margin-top: 2.5rem;

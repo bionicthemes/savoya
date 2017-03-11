@@ -59,8 +59,8 @@ Kirki::add_panel( 'header_panel_styles', array(
 
 Kirki::add_panel( 'general_panel_styles', array(
     'priority'    => 10,
-    'title'       => __( 'General Settings', 'savoya' ),
-    'description' => __( 'Savoya General Settings', 'savoya' ),
+    'title'       => __( 'Savoya Options', 'savoya' ),
+    'description' => __( 'Savoya General Options', 'savoya' ),
 ) );
 
 
@@ -163,36 +163,11 @@ if ( class_exists( 'Kirki' ) ) {
     ) );
 
 
+
+
     /**********************************************
      * Add Fields
      *********************************************/
-
-    // Logo
-    Kirki::add_field( '', array(
-        'type'        => 'image',
-        'setting'     => 'header_logo',
-        'label'       => __( 'Site Logo', 'savoya' ),
-        'section'     => 'logo',
-        'priority'    => 10,
-        'default'     => get_template_directory_uri() . '/includes/assets/logo.png',
-    ) );
-
-    // Header Style
-    Kirki::add_field( '', array(
-        'type'        => 'radio-image',
-        'setting'     => 'header_layout',
-        'label'       => __( 'Header Version', 'savoya' ),
-        'section'     => 'header_section_layout',
-        'description' => 'Here you can change the header version',
-        'priority'    => 10,
-        'default'     => 'style-1',
-        'choices'     => array(
-            'style-1' => get_template_directory_uri() . '/images/customiser/header_style_1.png',
-            'style-2' => get_template_directory_uri() . '/images/customiser/header_style_2.png',
-            'style-3' => get_template_directory_uri() . '/images/customiser/header_style_3.png',
-        ),
-
-    ) );
 
 
     /*******************************************
@@ -209,8 +184,8 @@ if ( class_exists( 'Kirki' ) ) {
         'priority'    => 10,
         'default'     => '0',
         'choices' => array(
-        'on'  => esc_attr__( 'Yes', 'textdomain' ),
-        'off' => esc_attr__( 'No', 'textdomain' )
+        'on'  => esc_attr__( 'Yes', 'savoya' ),
+        'off' => esc_attr__( 'No', 'savoya' )
         )
     ) );
 
@@ -367,19 +342,33 @@ if ( class_exists( 'Kirki' ) ) {
     /********** Header  ************************
     /*******************************************/
 
-    // Header Layout
+    // Logo
+    Kirki::add_field( '', array(
+        'type'        => 'image',
+        'setting'     => 'header_logo',
+        'label'       => __( 'Site Logo', 'savoya' ),
+        'section'     => 'logo',
+        'priority'    => 10,
+        'default'     => get_template_directory_uri() . '/includes/assets/logo.png',
+    ) );
+
+    // Header Style
     Kirki::add_field( '', array(
         'type'        => 'radio-image',
+        'setting'     => 'header_layout',
+        'label'       => __( 'Header Version', 'savoya' ),
         'section'     => 'header_section_layout',
-        'setting'     => 'header_size',
-        'label'       => __( 'Header Layout', 'savoya' ),
+        'description' => 'Here you can change the header version',
         'priority'    => 10,
-        'default'     => 'wide',
+        'default'     => 'style-1',
         'choices'     => array(
-            'wide'    => get_template_directory_uri() . '/images/customiser/header_style_1.png',
-            'boxed'   => get_template_directory_uri() . '/images/customiser/header_style_1.png',  
+            'style-1' => get_template_directory_uri() . '/images/customiser/header_style_1.png',
+            'style-2' => get_template_directory_uri() . '/images/customiser/header_style_2.png',
+            'style-3' => get_template_directory_uri() . '/images/customiser/header_style_3.png',
         ),
+
     ) );
+
 
     // Header Search Icon
     Kirki::add_field( '', array(
@@ -415,6 +404,22 @@ if ( class_exists( 'Kirki' ) ) {
         'default'     => true,
     ) );
 
+    // Header Transparent
+    Kirki::add_field( '', array(
+        'type'        => 'switch',
+        'section'     => 'header',
+        'panel'       => 'header_panel_styles',
+        'setting'     => 'header_transparent',
+        'label'       => __( 'Transparent Header?', 'savoya' ),
+        'priority'    => 10,
+        'default'     => '0',
+        'choices' => array(
+        'on'  => esc_attr__( 'Yes', 'savoya' ),
+        'off' => esc_attr__( 'No', 'savoya' )
+        )
+
+    ) );
+
     // Header Background Color
     Kirki::add_field( '', array(
         'type'        => 'color',
@@ -426,6 +431,7 @@ if ( class_exists( 'Kirki' ) ) {
         'default'     => '#FFFFFF',
 
     ) );
+
 
     // Header Text Color
     Kirki::add_field( '', array(
@@ -451,10 +457,29 @@ if ( class_exists( 'Kirki' ) ) {
     ) );
 
 
+    // Header Width
+    Kirki::add_field( '', array(
+        'type'        => 'slider',
+        'section'     => 'header_section_layout',
+        'panel'       => 'header_panel_styles',
+        'setting'     => 'header_width',
+        'label'       => __( 'Header Width', 'savoya' ),
+        'description' => __( 'Set the Header Width in percents %, default: 100% ', 'savoya' ),
+        'priority'    => 10,
+        'default'     => '100',
+        'choices'     => array(
+            'min'  => '50',
+            'max'  => '100',
+            'step' => 1,
+        ),
+
+    ) );
+
+
     // Header Height
     Kirki::add_field( '', array(
         'type'        => 'slider',
-        'section'     => 'header',
+        'section'     => 'header_section_layout',
         'panel'       => 'header_panel_styles',
         'setting'     => 'header_height',
         'label'       => __( 'Header Height', 'savoya' ),
@@ -467,6 +492,26 @@ if ( class_exists( 'Kirki' ) ) {
         ),
 
     ) );
+
+
+    // Header Distance Top
+    Kirki::add_field( '', array(
+        'type'        => 'slider',
+        'section'     => 'header_section_layout',
+        'panel'       => 'header_panel_styles',
+        'setting'     => 'header_distance_top',
+        'label'       => __( 'Header Distance Top', 'savoya' ),
+        'description' => __( 'Move the header from top to bottom a specific amount of pixels', 'savoya' ),
+        'priority'    => 10,
+        'default'     => '0',
+        'choices'     => array(
+            'min'  => '0',
+            'max'  => '50',
+            'step' => 1,
+        ),
+
+    ) );
+
 
 
     // Header Stickiness
@@ -497,6 +542,62 @@ if ( class_exists( 'Kirki' ) ) {
         ),
 
     ) );
+
+    // Main Menu - submenu background
+    Kirki::add_field( '', array(
+        'type'        => 'color',
+        'section'     => 'header',
+        'panel'       => 'header_panel_styles',
+        'setting'     => 'header_sub_main_menu_bg_color',
+        'label'       => __( 'Main Menu Submenu Background Color', 'savoya' ),
+        'priority'    => 10,
+        'default'     => '#373737',
+
+    ) );
+
+    // Main Menu - submenu text color
+    Kirki::add_field( '', array(
+        'type'        => 'color',
+        'section'     => 'header',
+        'panel'       => 'header_panel_styles',
+        'setting'     => 'header_sub_main_menu_font_color',
+        'label'       => __( 'Main Menu Submenu Text Color', 'savoya' ),
+        'priority'    => 10,
+        'default'     => '#FFFFFF',
+
+    ) );
+
+    // Search Overlay Text color
+
+    Kirki::add_field( '', array(
+        'type'        => 'color',
+        'section'     => 'header',
+        'panel'       => 'header_panel_styles',
+        'setting'     => 'header_search_text_color',
+        'label'       => __( 'Search Text Color', 'savoya' ),
+        'priority'    => 10,
+        'default'     => '#FFFFFF',
+
+    ) );
+
+    // Search Overlay Font size
+
+    Kirki::add_field( '', array(
+        'type'        => 'slider',
+        'section'     => 'header',
+        'panel'       => 'header_panel_styles',
+        'setting'     => 'header_search_font_size',
+        'label'       => __( 'Search Font Size', 'savoya' ),
+        'priority'    => 10,
+        'default'     => '100',
+        'choices'     => array(
+            'min'  => '50',
+            'max'  => '100',
+            'step' => 1,
+        ),
+
+    ) );
+
 
 
 

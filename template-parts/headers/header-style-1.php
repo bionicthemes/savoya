@@ -8,7 +8,8 @@ global $custom_header_logo,
 	   $custom_header_widget,
 	   $custom_header_sticky,
 	   $custom_header_sticky_logo,
-	   $custom_header_top_bar_phone;
+	   $custom_header_top_bar_phone,
+	   $custom_header_transparent
 
 ?>
 

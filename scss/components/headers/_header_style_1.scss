@@ -10,6 +10,11 @@
 	font-family: $main-font;
 	@include clearfix();
 	
+	&.pointer-events
+	{
+		pointer-events: none;
+	}
+	
 	&.header-style-1
 	{
 		.header-container
@@ -124,6 +129,7 @@
 				vertical-align: middle;
 				text-align: right;
 				width: rem-calc(120); 
+				pointer-events: all;
 					
 				.header-icons
 				{

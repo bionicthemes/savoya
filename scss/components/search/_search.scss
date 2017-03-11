@@ -1,3 +1,4 @@
+
 .header-search
 {
     position: fixed;
@@ -11,19 +12,18 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    animation: search_anmation_out;
-    animation-duration: .55s;
     background: none; 
+    opacity: 0;
+    visibility: hidden; 
 
     &.active
     {
 	    z-index: 2; 
 	    background: rgba(0,0,0,0.8);
+	    opacity: 1;
+    	visibility: visible; 
 	    @include transition(background, .35s, ease-in-out);
-		animation: menu_animation;
-		animation-duration: .55s;
-	   
-	    
+
 	    form
 	    {
 	    	opacity: 1;
@@ -117,39 +117,4 @@
 .moveAtSearch 
 {
 	transform: scale3d(0.7,0.7,1);
-}
-
-
-@keyframes search_anmation_in 
-{
-	0% 
-	{
-		opacity: 0;
-		visibility: hidden;
-		background: none;
-	}
-
-	100% 
-	{
-		opacity: 1;
-		visibility: visible;
-		background: rgba(0,0,0,0.8);
-	}
-}
-
-@keyframes search_anmation_out
-{
-	0% 
-	{
-		opacity: 1;
-		visibility: visible;
-		background: rgba(0,0,0,0.8);
-	}
-
-	100% 
-	{
-		opacity: 0;
-		visibility: hidden;
-		background: none; 
-	}
 }
