@@ -9,9 +9,25 @@ global $custom_header_logo,
 	   $custom_header_sticky,
 	   $custom_header_sticky_logo,
 	   $custom_header_top_bar_phone,
-	   $custom_header_transparent
+	   $custom_header_transparent,
 
+	   $custom_header_logo_light_activate;
+
+	   $bodyClass = [];
+
+
+	   if ( $custom_header_logo_light_activate == 1 ) {
+
+	   		array_push($bodyClass, 'logo-light');
+	   }
+
+	   var_dump($bodyClass);
+
+	
 ?>
+
+
+
 
 
 

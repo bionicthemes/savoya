@@ -37,14 +37,6 @@ function remove_customize_pages(){
     unset($submenu['themes.php'][20]); // remove Background link
 }
 
-// Kirki
-
-add_filter( 'kirki/config', 'savoya_kirki_update_url' );
-function savoya_kirki_update_url( $config ) {
-    $config['SAVOYA_THEME_PATH'] = get_stylesheet_directory_uri() . '/framework/inc/kirki/';
-    return $config;
-}
-
 
 
 /**********************************************
@@ -350,6 +342,34 @@ if ( class_exists( 'Kirki' ) ) {
         'section'     => 'logo',
         'priority'    => 10,
         'default'     => get_template_directory_uri() . '/includes/assets/logo.png',
+    ) );
+
+    // Logo Light Checkbox
+    Kirki::add_field( '', array(
+        'type'        => 'checkbox',
+        'setting'     => 'header_logo_light_activate',
+        'label'       => __( 'Light Logo?', 'savoya' ),
+        'section'     => 'logo',
+        'default'     => 0,
+        'priority'    => 10,
+    ) );
+
+    // Logo Light Upload
+    Kirki::add_field( '', array(
+        'type'        => 'image',
+        'setting'     => 'header_logo_light',
+        'label'       => __( 'Upload Light Logo', 'savoya' ),
+        'section'     => 'logo',
+        'default'     => get_template_directory_uri() . '/includes/assets/logo-light.png',
+        'priority'    => 10,
+        'active_callback'  => array(
+        array(
+            'setting'  => 'header_logo_light_activate',
+            'operator' => '==',
+            'value'    => 1,
+        ),
+    )
+       
     ) );
 
     // Header Style

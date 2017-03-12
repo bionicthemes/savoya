@@ -55,10 +55,6 @@ require_once( SAVOYA_THEME_PATH 				. '/functions/helpers.php' );
 
 
 
-
-
-
-
 // // =============================================================================
 
 // // Theme Functions
