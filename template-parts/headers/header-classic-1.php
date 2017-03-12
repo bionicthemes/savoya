@@ -26,7 +26,7 @@ global $custom_header_logo,
 
 
 <header 
-	class="header-style-1 site-header <?php if ( $custom_header_sticky == 1 ) : ?> header-sticky<?php endif; ?> ">
+	class="header-classic header-classic-1 site-header <?php if ( $custom_header_sticky == 1 ) : ?> header-sticky<?php endif; ?> ">
 
 	<!-- Header Navigation -->
 

@@ -112,7 +112,7 @@ if ( ! function_exists ('theme_custom_styles') ) {
 
 		   $base_font_size;
 
-			$custom_header_layout          			 = savoya_theme_option('header_layout', 'style-1');
+			$custom_header_layout          			 = savoya_theme_option('header_layout', 'classic-1');
 			$custom_header_logo            			 = savoya_theme_option('header_logo', get_template_directory_uri() . '/includes/assets/logo.png');
 			$custom_header_sticky           		 = savoya_theme_option('header_sticky', 1);
 			$custom_header_search_state          	 = savoya_theme_option('header_search', 1);
@@ -254,29 +254,29 @@ if ( ! function_exists ('theme_custom_styles') ) {
 
 			$header_colors_classes = '
 
-				' . $color_scheme . ' .site-header.header-style-1 .header-container .header-branding .site-title a,
-				' . $color_scheme . ' .site-header.header-style-1 .header-container .header-icons-mobile > li > a,
-				' . $color_scheme . ' .site-header.header-style-1 .header-container .main-navigation > ul > li > a,
-				' . $color_scheme . ' .site-header.header-style-1 .header-container .header-tools > ul > li > a,
-				' . $color_scheme . ' .site-header.header-style-1 .header-container .main-navigation ul > li:hover > a,
-				' . $color_scheme . ' .site-header.header-style-1 .header-container .header-widget,
-				' . $color_scheme . ' .site-header.header-style-1 .header-container .offcanvas-menu-icon a,
+				' . $color_scheme . ' .site-header .header-container .header-branding .site-title a,
+				' . $color_scheme . ' .site-header .header-container .header-icons-mobile > li > a,
+				' . $color_scheme . ' .site-header .header-container .main-navigation > ul > li > a,
+				' . $color_scheme . ' .site-header .header-container .header-tools > ul > li > a,
+				' . $color_scheme . ' .site-header .header-container .main-navigation ul > li:hover > a,
+				' . $color_scheme . ' .site-header .header-container .header-widget,
+				' . $color_scheme . ' .site-header .header-container .offcanvas-menu-icon a,
 
-				' . $color_scheme . ' .site-header.header-style-2 .header-container .header-branding .site-title a,
-				' . $color_scheme . ' .site-header.header-style-2 .header-container .header-icons-mobile > li > a,
-				' . $color_scheme . ' .site-header.header-style-2 .header-container .main-navigation > ul > li > a,
-				' . $color_scheme . ' .site-header.header-style-2 .header-container .header-tools > ul > li > a,
-				' . $color_scheme . ' .site-header.header-style-2 .header-container .main-navigation ul li:hover > a,
-				' . $color_scheme . ' .site-header.header-style-2 .header-container .header-widget,
-				' . $color_scheme . ' .site-header.header-style-2 .header-container .offcanvas-menu-icon a,
+				' . $color_scheme . ' .site-header .header-container .header-branding .site-title a,
+				' . $color_scheme . ' .site-header .header-container .header-icons-mobile > li > a,
+				' . $color_scheme . ' .site-header .header-container .main-navigation > ul > li > a,
+				' . $color_scheme . ' .site-header .header-container .header-tools > ul > li > a,
+				' . $color_scheme . ' .site-header .header-container .main-navigation ul li:hover > a,
+				' . $color_scheme . ' .site-header .header-container .header-widget,
+				' . $color_scheme . ' .site-header .header-container .offcanvas-menu-icon a,
 
-				' . $color_scheme . ' .site-header.header-style-3 .header-container .header-branding .site-title a,
-				' . $color_scheme . ' .site-header.header-style-3 .header-container .header-icons-mobile > li > a,
-				' . $color_scheme . ' .site-header.header-style-3 .header-container .main-navigation > ul > li > a,
-				' . $color_scheme . ' .site-header.header-style-3 .header-container .header-tools > ul > li > a,
-				' . $color_scheme . ' .site-header.header-style-3 .header-container .main-navigation ul li:hover > a,
-				' . $color_scheme . ' .site-header.header-style-3 .header-container .header-widget,
-				' . $color_scheme . ' .site-header.header-style-3 .header-container .offcanvas-menu-icon a
+				' . $color_scheme . ' .site-header .header-container .header-branding .site-title a,
+				' . $color_scheme . ' .site-header .header-container .header-icons-mobile > li > a,
+				' . $color_scheme . ' .site-header .header-container .main-navigation > ul > li > a,
+				' . $color_scheme . ' .site-header .header-container .header-tools > ul > li > a,
+				' . $color_scheme . ' .site-header .header-container .main-navigation ul li:hover > a,
+				' . $color_scheme . ' .site-header .header-container .header-widget,
+				' . $color_scheme . ' .site-header .header-container .offcanvas-menu-icon a
 				{
 					color: ' . $text_color . ';
 				}
@@ -287,7 +287,7 @@ if ( ! function_exists ('theme_custom_styles') ) {
 					color: ' . $links_color . ' !important;
 				}
 
-				' . $color_scheme . ' .site-header.header-style-1 .header-container .main-navigation > ul > li:hover
+				' . $color_scheme . ' .site-header .header-container .main-navigation > ul > li:hover
 				{
 					color: ' . $text_color . ' !important;
 				}
@@ -388,23 +388,23 @@ if ( ! function_exists ('theme_custom_styles') ) {
 		}		
 
 
-		.site-header.header-style-1 .header-container .main-navigation > ul > li > a,
-		.site-header.header-style-1 .header-container .header-branding .site-title a,
-		.site-header.header-style-1 .header-container .header-icons-mobile > li > a,
-		.site-header.header-style-1 .header-container .header-tools > ul > li > a,
-		.site-header.header-style-1 .header-container .header-widget
+		.site-header .header-container .main-navigation > ul > li > a,
+		.site-header .header-container .header-branding .site-title a,
+		.site-header .header-container .header-icons-mobile > li > a,
+		.site-header .header-container .header-tools > ul > li > a,
+		.site-header .header-container .header-widget
 
-		.site-header.header-style-2 .header-container .main-navigation > ul > li > a,
-		.site-header.header-style-2 .header-container .header-branding .site-title a,
-		.site-header.header-style-2 .header-container .header-icons-mobile > li > a,
-		.site-header.header-style-2 .header-container .header-tools > ul > li > a,
-		.site-header.header-style-2 .header-container .header-widget
+		.site-header .header-container .main-navigation > ul > li > a,
+		.site-header .header-container .header-branding .site-title a,
+		.site-header .header-container .header-icons-mobile > li > a,
+		.site-header .header-container .header-tools > ul > li > a,
+		.site-header .header-container .header-widget
 
-		.site-header.header-style-3 .header-container .main-navigation > ul > li > a,
-		.site-header.header-style-3 .header-container .header-branding .site-title a,
-		.site-header.header-style-3 .header-container .header-icons-mobile > li > a,
-		.site-header.header-style-3 .header-container .header-tools > ul > li > a,
-		.site-header.header-style-3 .header-container .header-widget,
+		.site-header .header-container .main-navigation > ul > li > a,
+		.site-header .header-container .header-branding .site-title a,
+		.site-header .header-container .header-icons-mobile > li > a,
+		.site-header .header-container .header-tools > ul > li > a,
+		.site-header .header-container .header-widget,
 		{
 			font-size: <?php echo $custom_header_font_size . 'px'; ?>;                /* Header Font-Size */
 			color: <?php echo $custom_header_text_color; ?>;                       /* Header Color */
@@ -431,7 +431,7 @@ if ( ! function_exists ('theme_custom_styles') ) {
 			height: <?php echo $custom_header_sticky_height .'px !important';  ?>;    
 		}
 
-		.site-header.header-style-1.active .header-container .header-branding .logo img
+		.site-header.active .header-container .header-branding .logo img
 		{
 			max-height: <?php echo $custom_header_sticky_height .'px !important';  ?>;
 		} 
@@ -460,12 +460,12 @@ if ( ! function_exists ('theme_custom_styles') ) {
 			background: <?php echo $custom_header_sub_main_menu_bg_color;?> !important;
 		}
 
-		.site-header.header-style-1 .header-container .main-navigation > ul > li:not(.megamenu-item) > ul:after
+		.site-header .header-container .main-navigation > ul > li:not(.megamenu-item) > ul:after
 		{
 			border-bottom-color: <?php echo $custom_header_sub_main_menu_bg_color;?> !important;
 		}
 
-		.site-header.header-style-1 .header-container .main-navigation > ul > li > ul  li  a
+		.site-header .header-container .main-navigation > ul > li > ul  li  a
 		{
 			color: <?php echo $custom_header_sub_main_menu_font_color;?> !important;
 		}

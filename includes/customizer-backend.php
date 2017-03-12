@@ -360,11 +360,11 @@ if ( class_exists( 'Kirki' ) ) {
         'section'     => 'header_section_layout',
         'description' => 'Here you can change the header version',
         'priority'    => 10,
-        'default'     => 'style-1',
+        'default'     => 'classic-1',
         'choices'     => array(
-            'style-1' => get_template_directory_uri() . '/images/customiser/header_style_1.png',
-            'style-2' => get_template_directory_uri() . '/images/customiser/header_style_2.png',
-            'style-3' => get_template_directory_uri() . '/images/customiser/header_style_3.png',
+            'classic-1' => get_template_directory_uri() . '/images/customiser/header_style_1.png',
+            'classic-2' => get_template_directory_uri() . '/images/customiser/header_style_2.png',
+            'classic-3' => get_template_directory_uri() . '/images/customiser/header_style_3.png',
         ),
 
     ) );
