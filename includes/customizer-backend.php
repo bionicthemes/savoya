@@ -165,18 +165,35 @@ if ( class_exists( 'Kirki' ) ) {
 
     // Header Top Bar On/Off
     Kirki::add_field( '', array(
-        'type'        => 'switch',
+        'type'        => 'toggle',
         'section'     => 'header_top_bar',
         'panel'       => 'header_panel_styles',
         'setting'     => 'header_top_bar_activate',
         'label'       => __( 'Do you want to show Header Top Bar?', 'savoya' ),
         'priority'    => 10,
         'default'     => '0',
-        'choices' => array(
-            'on'  => esc_attr__( 'Yes', 'savoya' ),
-            'off' => esc_attr__( 'No', 'savoya' )
-        )
+        
     ) );
+
+    // Header Top Bar Background Transparent
+    Kirki::add_field( '', array(
+        'type'        => 'toggle',
+        'section'     => 'header_top_bar',
+        'panel'       => 'header_panel_styles',
+        'setting'     => 'header_top_bar_background_transparent',
+        'label'       => __( 'Transparent Background?', 'savoya' ),
+        'priority'    => 10,
+        'default'     => '1',
+        'active_callback'    => array(
+            array(
+                'setting'  => 'header_top_bar_activate',
+                'operator' => '==',
+                'value'    => '1',     
+            ),
+        ),
+
+    ) );
+
 
     // Header Top Bar Background Color
     Kirki::add_field( '', array(
@@ -404,7 +421,6 @@ if ( class_exists( 'Kirki' ) ) {
     ) );
 
 
-
     /*******************************************
     /********** Header  ************************
     /*******************************************/
@@ -419,18 +435,30 @@ if ( class_exists( 'Kirki' ) ) {
         'default'     => get_template_directory_uri() . '/includes/assets/logo.png',
     ) );
 
+    // Logo Height
+    Kirki::add_field( '', array(
+        'type'        => 'slider',
+        'setting'     => 'header_logo_height',
+        'label'       => __( 'Logo Height' , 'savoya' ),
+        'description' => __( 'Increase or decrease logo Height in order to grow in Width'),
+        'section'     => 'logo',
+        'priority'    => 10,
+        'default'     => '50',
+        'choices'     => array(
+            'min'  => '30',
+            'max'  => '100',
+            'step' => 1,
+        ),
+    ) );
+
     // Logo Light Checkbox
     Kirki::add_field( '', array(
-        'type'        => 'switch',
+        'type'        => 'toggle',
         'setting'     => 'header_logo_light_activate',
         'label'       => __( 'Light Logo?', 'savoya' ),
         'section'     => 'logo',
-        'default'     => 'off',
+        'default'     => '1',
         'priority'    => 10,
-        'choices' => array(
-            'on'  => esc_attr__( 'Enable', 'savoya' ),
-            'off' => esc_attr__( 'Disable', 'savoya' )
-    )
 
     ) );
 
@@ -506,18 +534,13 @@ if ( class_exists( 'Kirki' ) ) {
 
     // Header Transparent
     Kirki::add_field( '', array(
-        'type'        => 'switch',
+        'type'        => 'toggle',
         'section'     => 'header',
         'panel'       => 'header_panel_styles',
         'setting'     => 'header_transparent',
         'label'       => __( 'Transparent Header?', 'savoya' ),
         'priority'    => 10,
         'default'     => '0',
-        'choices' => array(
-        'on'  => esc_attr__( 'Yes', 'savoya' ),
-        'off' => esc_attr__( 'No', 'savoya' )
-        )
-
     ) );
 
     // Header Background Color
@@ -613,10 +636,9 @@ if ( class_exists( 'Kirki' ) ) {
     ) );
 
 
-
     // Header Stickiness
     Kirki::add_field( '', array(
-        'type'        => 'switch',
+        'type'        => 'toggle',
         'section'     => 'header_stickiness',
         'panel'       => 'header_panel_styles',
         'setting'     => 'header_sticky',
@@ -698,12 +720,48 @@ if ( class_exists( 'Kirki' ) ) {
 
     ) );
 
-
-
-
     /********************************************
     /********** Header Sticky *******************
     /*******************************************/
+
+
+    // Header Sticky Background Transparent
+    Kirki::add_field( '', array(
+        'type'        => 'toggle',
+        'section'     => 'header_stickiness',
+        'panel'       => 'header_panel_styles',
+        'setting'     => 'header_sticky_transparent',
+        'label'       => __( 'Transparent Background?', 'savoya' ),
+        'priority'    => 10,
+        'default'     => '0',
+        'active_callback'    => array(
+            array(
+                'setting'  => 'header_sticky',
+                'operator' => '==',
+                'value'    => '1',     
+            ),
+        ),
+
+    ) );
+
+    // Header Sticky Background Color
+    Kirki::add_field( '', array(
+        'type'        => 'image',
+        'section'     => 'header_stickiness',
+        'panel'       => 'header_panel_styles',
+        'setting'     => 'header_sticky_logo',
+        'label'       => __( 'Header Sticky Logo', 'savoya' ),
+        'priority'    => 10,
+        'default'     => get_template_directory_uri() . '/includes/assets/logo-light.png',
+        'active_callback'    => array(
+            array(
+                'setting'  => 'header_sticky',
+                'operator' => '==',
+                'value'    => '1',     
+            ),
+        ),
+
+    ) );
 
 
     // Header Sticky Background Color
@@ -715,6 +773,13 @@ if ( class_exists( 'Kirki' ) ) {
         'label'       => __( 'Header Sticky Background Color', 'savoya' ),
         'priority'    => 10,
         'default'     => '#085477',
+        'active_callback'    => array(
+            array(
+                'setting'  => 'header_sticky',
+                'operator' => '==',
+                'value'    => '1',     
+            ),
+        ),
 
     ) );
 
@@ -727,6 +792,13 @@ if ( class_exists( 'Kirki' ) ) {
         'label'       => __( 'Header Sticky Text Color', 'savoya' ),
         'priority'    => 10,
         'default'     => '#FFFFFF',
+        'active_callback'    => array(
+            array(
+                'setting'  => 'header_sticky',
+                'operator' => '==',
+                'value'    => '1',     
+            ),
+        ),
 
     ) );
 
@@ -739,6 +811,13 @@ if ( class_exists( 'Kirki' ) ) {
         'label'       => __( 'Header Sticky Links Color', 'savoya' ),
         'priority'    => 10,
         'default'     => '#169099',
+        'active_callback'    => array(
+            array(
+                'setting'  => 'header_sticky',
+                'operator' => '==',
+                'value'    => '1',     
+            ),
+        ),
 
     ) );
 
@@ -755,6 +834,14 @@ if ( class_exists( 'Kirki' ) ) {
             'min'  => '0',
             'max'  => '250',
             'step' => 1,
+
+        ),
+        'active_callback'    => array(
+            array(
+                'setting'  => 'header_sticky',
+                'operator' => '==',
+                'value'    => '1',     
+            ),
         ),
 
     ) );

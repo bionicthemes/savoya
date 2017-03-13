@@ -15,10 +15,12 @@ if ( ! function_exists ('theme_custom_styles') ) {
 		   $custom_header_logo,
 		   $custom_header_logo_light,
 		   $custom_header_logo_light_activate,
+		   $custom_header_logo_height,
 		   $custom_header_search_state,
 		   $custom_header_cart,
 		   $custom_header_widget,
 		   $custom_header_sticky,
+		   $custom_header_sticky_logo,
 		   $custom_header_background_color,
 		   $custom_header_text_color,
 		   $custom_header_links_color,
@@ -27,6 +29,7 @@ if ( ! function_exists ('theme_custom_styles') ) {
 		   $custom_header_height,
 		   $custom_header_width,
 		   $custom_header_sticky_background_color,
+		   $custom_header_sticky_transparent,
 		   $custom_header_sticky_text_color,
 		   $custom_header_sticky_links_color,
 		   $custom_header_sticky_height,
@@ -38,6 +41,7 @@ if ( ! function_exists ('theme_custom_styles') ) {
 
 		   // Top Bar
 		   $custom_header_top_bar_background_color,
+		   $custom_header_top_bar_background_transparent,
 		   $custom_header_top_bar_links_color,
 		   $custom_header_top_bar_text_color,
 		   $custom_header_top_bar_hover_color,
@@ -121,7 +125,12 @@ if ( ! function_exists ('theme_custom_styles') ) {
 
 			$custom_header_logo_light_activate       = savoya_theme_option('header_logo_light_activate', 'on');	
 
+
+
+			$custom_header_logo_height       		 = savoya_theme_option('header_logo_height', '50');	
+
 			$custom_header_sticky           		 = savoya_theme_option('header_sticky', 1);
+			$custom_header_sticky_logo           	 = savoya_theme_option('header_sticky_logo', get_template_directory_uri() . '/includes/assets/logo-light.png');
 			$custom_header_search_state          	 = savoya_theme_option('header_search', 1);
 			$custom_header_cart                      = savoya_theme_option('header_cart', 0);
 			$custom_header_widget      	             = savoya_theme_option('header_widget', 1);
@@ -132,6 +141,7 @@ if ( ! function_exists ('theme_custom_styles') ) {
 			$custom_header_size            			 = savoya_theme_option('header_size', 'wide');
 			$custom_header_height          			 = savoya_theme_option('header_height', '100');
 			$custom_header_sticky_background_color   = savoya_theme_option('header_sticky_background_color', '#085477');
+			$custom_header_sticky_transparent   	 = savoya_theme_option('header_sticky_transparent', '0');
 			$custom_header_sticky_text_color     	 = savoya_theme_option('header_sticky_text_color', '#FFFFFF');
 			$custom_header_sticky_links_color      	 = savoya_theme_option('header_sticky_links_color', '#169099');
 			$custom_header_sticky_height          	 = savoya_theme_option('header_sticky_height', '65');
@@ -150,7 +160,10 @@ if ( ! function_exists ('theme_custom_styles') ) {
 
 			// Top Bar
 
-			$custom_header_top_bar_background_color = savoya_theme_option( 'header_top_bar_background_color', '#05F9DF');
+			$custom_header_top_bar_background_color 	= savoya_theme_option( 'header_top_bar_background_color', '#05F9DF');
+	$custom_header_top_bar_background_transparent = savoya_theme_option( 'header_top_bar_background_transparent', '1');
+
+
 			$custom_header_top_bar_text_color       = savoya_theme_option( 'header_top_bar_text_color', '#7f8c8d');
 			$custom_header_top_bar_links_color      = savoya_theme_option( 'header_top_bar_links_color', '#37474F');
 			$custom_header_top_bar_hover_color      = savoya_theme_option( 'header_top_bar_hover_color', '#546E7A');
@@ -366,24 +379,39 @@ if ( ! function_exists ('theme_custom_styles') ) {
 		}
 
 
-
-		
-
 		/***********************************
 		/********** HEADER *****************
 		/**********************************/
-		
-		
+			
+
+			<?php if ( $custom_header_top_bar_background_transparent  === '1') : ?>
+			
+				.header-top-bar 
+				{
+					background-color:  transparent !important;
+			 	}
+			
+			<?php endif; ?>
+
 
 			 <?php if ( $custom_header_transparent != "0" )  : ?>
 
-			 	
-			 	.site-header {
+			 	.site-header:not(.active)
+			 	{
 					background-color:  transparent !important;
 			 	}
 
-
 		 	 <?php endif; ?>
+
+
+			<?php if ( $custom_header_sticky_transparent  === '1') : ?>
+			
+				.site-header.header-sticky.active 
+				{
+					background-color:  transparent !important;
+			 	}
+			
+			<?php endif; ?>
 
 
 		.site-header
@@ -442,6 +470,12 @@ if ( ! function_exists ('theme_custom_styles') ) {
 		{
 			max-height: <?php echo $custom_header_sticky_height .'px !important';  ?>;
 		} 
+
+
+		.site-header .header-container .header-branding .logo img 
+		{
+			max-height:  <?php echo $custom_header_logo_height .'px !important';  ?>;
+		}
 
 
 		.site-header.header-sticky.active .header-container .header-branding .site-title a,

@@ -18,16 +18,25 @@
 		}
 	}
 
-	&.header-branding
+	.header-branding
     {
     	.logo
     	{
     		transition: max-width .4s ease,margin .4s ease,opacity .2s .2s ease;
     		
-    		@media #{$large-up}
+    		a
     		{
-    			max-width: 60px; 
+    			&.logo_img
+    			{
+    				display: none !important;
+    			}
+    			
+    			&.sticky_logo
+    			{
+    				display: block !important;
+    			}
     		}
+    		
     	}
     }
    

@@ -2658,11 +2658,12 @@ cite {
     .admin-bar .header-sticky.active.site-header {
       top: 32px; } }
 
-.header-sticky.active.header-branding .logo {
+.header-sticky.active .header-branding .logo {
   transition: max-width .4s ease,margin .4s ease,opacity .2s .2s ease; }
-  @media screen and (min-width: 64em) {
-    .header-sticky.active.header-branding .logo {
-      max-width: 60px; } }
+  .header-sticky.active .header-branding .logo a.logo_img {
+    display: none !important; }
+  .header-sticky.active .header-branding .logo a.sticky_logo {
+    display: block !important; }
 
 .header-sticky.active.boxed {
   max-width: 100%; }
@@ -2928,21 +2929,21 @@ cite {
           display: table-cell;
           vertical-align: middle;
           text-align: right; } }
-    .active .site-header.header-classic .header-container {
-      background: #FFFFFF;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); }
     .site-header.header-classic .header-container .header-branding {
       display: table-cell;
       vertical-align: middle;
       text-align: left; }
       .site-header.header-classic .header-container .header-branding .logo {
-        max-width: 13.25rem;
-        transition: max-width .4s ease,margin .4s ease,opacity .2s .2s ease; }
+        transition: all 0.25s ease; }
+        .site-header.header-classic .header-container .header-branding .logo img {
+          max-height: 50px; }
+        .site-header.header-classic .header-container .header-branding .logo a.logo_img {
+          display: block; }
+        .site-header.header-classic .header-container .header-branding .logo a.sticky_logo {
+          display: none; }
       .site-header.header-classic .header-container .header-branding .site-title a {
         font-size: 0.875rem;
         font-weight: bold; }
-      .site-header.header-classic .header-container .header-branding a {
-        display: block; }
     .site-header.header-classic .header-container .main-navigation {
       display: inline-block;
       vertical-align: middle;
@@ -3312,5 +3313,4 @@ cite {
   position: relative;
   transition: -webkit-transform 0.5s;
   transition: transform 0.5s;
-  transition: transform 0.5s, -webkit-transform 0.5s;
-  display: none; }
+  transition: transform 0.5s, -webkit-transform 0.5s; }

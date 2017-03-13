@@ -14,15 +14,10 @@
 	{
 		pointer-events: none;
 	}
+
 	
 	&.header-classic
 	{
-
-		&.logo-light
-		{
-			// display: none;
-		}
-		
 		.header-container
 		{
 			width: 100%; 
@@ -59,11 +54,6 @@
 				}
 			}
 
-			.active &
-			{
-				background: $white; 
-				box-shadow: 0 0 10px rgba( 0, 0, 0, .2 );
-			}
 
 			.header-branding
 			{
@@ -73,9 +63,26 @@
 				
 				.logo
 		    	{
-		    		max-width: rem-calc(212); // logo size 
-		    		transition: max-width .4s ease,margin .4s ease,opacity .2s .2s ease;
+		    		@include transition(all, .25s);
+		    		
+		    		img
+		    		{
+		    			max-height: 50px; 
+		    		}
 
+					a
+		    		{
+		    			&.logo_img
+		    			{
+		    				display: block;
+		    			}
+		    			
+		    			&.sticky_logo
+		    			{
+		    				display: none;
+		    			}
+		    		}
+		    		
 		    	}
 
 		    	.site-title
@@ -88,10 +95,6 @@
 		    		
 		    	}
 					
-				a
-				{
-					display: block;
-				}
 			}
 
 			.main-navigation

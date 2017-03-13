@@ -7,6 +7,7 @@
 	$custom_header_top_social_media,
 	$custom_header_top_bar_text,
 	$custom_header_top_bar_activate,
+	$custom_header_top_bar_background_transparent,
 	$fa_facebook,
 	$fa_twitter,
 	$fa_pinterest,
@@ -25,6 +26,8 @@
 	$fa_weibo,
 	$fa_foursquare,
 	$fa_soundcloud;
+
+
 
 ?>
 

@@ -26,6 +26,7 @@ global $custom_header_logo,
 			$stickyHeader = '';
 		}
 
+
 ?>
 
 
@@ -53,7 +54,13 @@ global $custom_header_logo,
 
             <?php if ( ! empty( $custom_header_logo ) ) : ?>
                             
-                <div class="logo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo esc_url( $custom_header_logo ); ?>" title="<?php bloginfo('name'); ?>" alt="<?php bloginfo('name'); ?>"></a>
+                <div class="logo">
+	                <a class="logo_img" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo esc_url( $custom_header_logo ); ?>" title="<?php bloginfo('name'); ?>" alt="<?php bloginfo('name'); ?>">
+	                </a>
+
+	                 <a class="sticky_logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo esc_url( $custom_header_sticky_logo ); ?>" title="<?php bloginfo('name'); ?>" alt="<?php bloginfo('name'); ?>">
+	                </a>
+	                
                 </div>
             
             <?php else : ?>
