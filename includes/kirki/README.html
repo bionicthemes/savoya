@@ -1,5 +1,11 @@
-<h1 id="kirki">Kirki</h1>
-<p><strong>Contributors:</strong> aristath, fovoc, igmoweb<br><strong>Tags:</strong> customizer,options framework, theme, mods, toolkit<br><strong>Donate link:</strong> <a href="http://kirki.org/">http://kirki.org/</a><br><strong>Requires at least:</strong> 4.4<br><strong>Tested up to:</strong> 4.5<br><strong>Stable tag:</strong> 2.3.4<br><strong>License:</strong> GPLv2 or later<br><strong>License URI:</strong> <a href="http://www.gnu.org/licenses/gpl-2.0.html">http://www.gnu.org/licenses/gpl-2.0.html</a>  </p>
+<html>
+      <head>
+        <meta charset="UTF-8">
+        <title>README.md</title>
+      </head>
+      <body>
+        <h1 id="kirki">Kirki</h1>
+<p><strong>Contributors:</strong> aristath, fovoc, igmoweb<br><strong>Tags:</strong> customizer,options framework, theme, mods, toolkit<br><strong>Donate link:</strong> <a href="http://kirki.org/">http://kirki.org/</a><br><strong>Requires at least:</strong> 4.4<br><strong>Tested up to:</strong> 4.6.1<br><strong>Stable tag:</strong> 2.3.7<br><strong>License:</strong> GPLv2 or later<br><strong>License URI:</strong> <a href="http://www.gnu.org/licenses/gpl-2.0.html">http://www.gnu.org/licenses/gpl-2.0.html</a>  </p>
 <p>The ultimate toolkit for theme developers using the WordPress Customizer</p>
 <h2 id="description">Description</h2>
 <p><a href="https://travis-ci.org/aristath/kirki"><img src="https://travis-ci.org/aristath/kirki.svg?branch=master" alt="Build Status"></a> <a href="https://scrutinizer-ci.com/g/aristath/kirki/?branch=master"><img src="https://scrutinizer-ci.com/g/aristath/kirki/badges/quality-score.png?b=master" alt="Scrutinizer Code Quality"></a> <a href="https://codeclimate.com/github/aristath/kirki"><img src="https://codeclimate.com/github/aristath/kirki/badges/gpa.svg" alt="Code Climate"></a> <a href="https://raw.githubusercontent.com/aristath/kirki/master/LICENSE"><img src="https://img.shields.io/badge/license-GPL--2.0%2B-red.svg" alt="License"></a> <a href="https://gitter.im/aristath/kirki?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="Join the chat at https://gitter.im/aristath/kirki"></a></p>
@@ -14,6 +20,39 @@
 <p>Simply install as a normal WordPress plugin and activate.</p>
 <p>If you want to integrate Kirki in your theme or plugin, please read the instructions on <a href="https://kirki.org/docs/advanced/integration.html">our ducumentation site</a>.</p>
 <h2 id="changelog">Changelog</h2>
+<h3 id="2-3-7">2.3.7</h3>
+<p>October 22, 2016, dev time: 12 hours.</p>
+<ul>
+<li>Fix: <code>spacing</code> controls were not updating after save</li>
+<li>New: Now using the WP Notifications API in the customizer for spacing &amp; dimension controls (requires WP 4.6).</li>
+<li>Fix: Allow overriding <code>option_type</code> with <code>theme_mod</code> when global config uses <code>option</code> by using the <code>option_type</code> argument in the fields.</li>
+<li>Fix: Disabled the custom kirki-preview loader. This will have to be built more modular in future versions.</li>
+<li>Fix: Refactored panel &amp; section icons.</li>
+<li>Fix: postMessage now works better with slider controls.</li>
+<li>Fix: Reset button not working unless tooltips are loaded.</li>
+<li>Fix: Properly sanitize <code>link</code> and <code>url</code> fields.</li>
+<li>Fix: Automate sanitization for <code>repeater</code> fields.</li>
+</ul>
+<h3 id="2-3-6">2.3.6</h3>
+<p>August 28, 2016, dev time: 3 hours.</p>
+<ul>
+<li>Fix: CSS prefixes order fixes (<a href="https://github.com/aristath/kirki/pull/1042">#1042</a>).</li>
+<li>Fix: <code>suffix</code> output argument support in Multicolor control (<a href="https://github.com/aristath/kirki/pull/1042">#1042</a>).</li>
+<li>Fix: <code>Kirki::get_variables()</code> method should be static (<a href="https://github.com/aristath/kirki/pull/1050">#1050</a>).</li>
+<li>Fix: Add line wrapping to CodeMirror (<a href="https://github.com/aristath/kirki/pull/1079">#1079</a>).</li>
+<li>Fix: <code>container_inclusive</code> is disregarded on the selective refresh class (<a href="https://github.com/aristath/kirki/issues/1089">#1089</a>).</li>
+<li>Fix: Support <code>input_attrs</code> parameter for controls (<a href="https://github.com/aristath/kirki/issues/1074">#1074</a>).</li>
+<li>Fix: Outdated Google-Fonts list (<a href="https://github.com/aristath/kirki/issues/1091">#1091</a>).</li>
+</ul>
+<h3 id="2-3-5">2.3.5</h3>
+<p>July 2, 2016. dev time: 6 hours.</p>
+<ul>
+<li>FIX: Missing button labels in <code>repeater</code> fields.</li>
+<li>FIX: Missing button label in <code>code</code> fields (<a href="https://github.com/aristath/kirki/issues/1017">#1017</a>).</li>
+<li>FIX: Better implementation when embedding Kirki in a theme (<a href="https://github.com/aristath/kirki/issues/1025">#1025</a>).</li>
+<li>FIX: Updated google-fonts (<a href="https://github.com/aristath/kirki/issues/1041">#1041</a>).</li>
+<li>NEW: Allow simpler format for <code>variables</code> argument (<a href="https://github.com/aristath/kirki/issues/1020">#1020</a>).</li>
+</ul>
 <h3 id="2-3-4">2.3.4</h3>
 <p>June 1, 2016, dev time: 30 minutes.</p>
 <ul>
@@ -597,3 +636,6 @@
 <ul>
 <li>Initial version</li>
 </ul>
+
+      </body>
+    </html>

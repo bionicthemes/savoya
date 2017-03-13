@@ -18,7 +18,7 @@ jQuery(function($) {
 		headerSearch.addClass('active');
 		setTimeout(function() {
 			$(".header-search.active input[type='search']").focus();
-		},1500);
+		},500);
 	});
 
 	// close search

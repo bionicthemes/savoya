@@ -30,9 +30,6 @@ Kirki::add_config( 'savoya', array(
 add_action('admin_menu', 'remove_customize_pages');
 function remove_customize_pages(){
     global $submenu;
-    //echo "<pre>";
-    //print_r($submenu);
-    //echo "</pre>";
     unset($submenu['themes.php'][15]); // remove Header link
     unset($submenu['themes.php'][20]); // remove Background link
 }
@@ -176,8 +173,8 @@ if ( class_exists( 'Kirki' ) ) {
         'priority'    => 10,
         'default'     => '0',
         'choices' => array(
-        'on'  => esc_attr__( 'Yes', 'savoya' ),
-        'off' => esc_attr__( 'No', 'savoya' )
+            'on'  => esc_attr__( 'Yes', 'savoya' ),
+            'off' => esc_attr__( 'No', 'savoya' )
         )
     ) );
 
@@ -190,6 +187,13 @@ if ( class_exists( 'Kirki' ) ) {
         'label'       => __( 'Header Top Bar Background Color', 'savoya' ),
         'priority'    => 10,
         'default'     => '#05F9DF',
+        'active_callback'    => array(
+            array(
+                'setting'  => 'header_top_bar_activate',
+                'operator' => '==',
+                'value'    => '1',     
+            ),
+        ),
 
     ) );
 
@@ -203,6 +207,13 @@ if ( class_exists( 'Kirki' ) ) {
         'label'       => __( 'Header Top Bar Text Color', 'savoya' ),
         'priority'    => 10,
         'default'     => '#757575',
+         'active_callback'    => array(
+            array(
+                'setting'  => 'header_top_bar_activate',
+                'operator' => '==',
+                'value'    => '1',     
+            ),
+        ),
 
     ) );
 
@@ -216,6 +227,13 @@ if ( class_exists( 'Kirki' ) ) {
         'label'       => __( 'Header Top Bar Links Color', 'savoya' ),
         'priority'    => 10,
         'default'     => '#37474F',
+         'active_callback'    => array(
+            array(
+                'setting'  => 'header_top_bar_activate',
+                'operator' => '==',
+                'value'    => '1',     
+            ),
+        ),
     ) );
 
     // Header Top Bar Hover Color
@@ -227,6 +245,13 @@ if ( class_exists( 'Kirki' ) ) {
         'label'       => __( 'Header Top Bar Hover Color', 'savoya' ),
         'priority'    => 10,
         'default'     => '#546E7A',
+         'active_callback'    => array(
+            array(
+                'setting'  => 'header_top_bar_activate',
+                'operator' => '==',
+                'value'    => '1',     
+            ),
+        ),
     ) );
 
     // Header Top Bar Font Size
@@ -243,6 +268,14 @@ if ( class_exists( 'Kirki' ) ) {
             'min'  => '10',
             'max'  => '16',
             'step' => 1,
+
+        ),
+        'active_callback'    => array(
+            array(
+                'setting'  => 'header_top_bar_activate',
+                'operator' => '==',
+                'value'    => '1',     
+            ),
         ),
 
     ) );
@@ -263,6 +296,13 @@ if ( class_exists( 'Kirki' ) ) {
             'max'  => '20',
             'step' => 1,
         ),
+        'active_callback'    => array(
+            array(
+                'setting'  => 'header_top_bar_activate',
+                'operator' => '==',
+                'value'    => '1',     
+            ),
+        ),
 
     ) );
 
@@ -282,6 +322,13 @@ if ( class_exists( 'Kirki' ) ) {
             'max'  => '200',
             'step' => 1,
         ),
+        'active_callback'    => array(
+            array(
+                'setting'  => 'header_top_bar_activate',
+                'operator' => '==',
+                'value'    => '1',     
+            ),
+        ),
 
     ) );
 
@@ -295,6 +342,13 @@ if ( class_exists( 'Kirki' ) ) {
         'section'     => 'header_top_bar',
         'priority'    => 10,
         'default'  => esc_attr__( '+1-202-555-0121', 'savoya' ),
+        'active_callback'    => array(
+            array(
+                'setting'  => 'header_top_bar_activate',
+                'operator' => '==',
+                'value'    => '1',     
+            ),
+        ),
     ) );
 
     // Header Top Bar Email
@@ -305,6 +359,13 @@ if ( class_exists( 'Kirki' ) ) {
         'section'     => 'header_top_bar',
         'default'  => esc_attr__( 'website@website.com', 'savoya' ),
         'priority'    => 10,
+        'active_callback'    => array(
+            array(
+                'setting'  => 'header_top_bar_activate',
+                'operator' => '==',
+                'value'    => '1',     
+            ),
+        ),
     ) );
 
     // Header Top Bar Address
@@ -315,6 +376,13 @@ if ( class_exists( 'Kirki' ) ) {
         'section'     => 'header_top_bar',
         'default'  => esc_attr__( '6 Poplar Way, Cranford, NJ, 07016', 'savoya' ),
         'priority'    => 10,
+        'active_callback'    => array(
+            array(
+                'setting'  => 'header_top_bar_activate',
+                'operator' => '==',
+                'value'    => '1',     
+            ),
+        ),
     ) );
 
 
@@ -326,6 +394,13 @@ if ( class_exists( 'Kirki' ) ) {
         'section'     => 'header_top_bar',
         'default'     => 'This is a dummy text',
         'priority'    => 10,
+        'active_callback'    => array(
+            array(
+                'setting'  => 'header_top_bar_activate',
+                'operator' => '==',
+                'value'    => '1',     
+            ),
+        ),
     ) );
 
 
@@ -346,12 +421,17 @@ if ( class_exists( 'Kirki' ) ) {
 
     // Logo Light Checkbox
     Kirki::add_field( '', array(
-        'type'        => 'checkbox',
+        'type'        => 'switch',
         'setting'     => 'header_logo_light_activate',
         'label'       => __( 'Light Logo?', 'savoya' ),
         'section'     => 'logo',
-        'default'     => 0,
+        'default'     => 'off',
         'priority'    => 10,
+        'choices' => array(
+            'on'  => esc_attr__( 'Enable', 'savoya' ),
+            'off' => esc_attr__( 'Disable', 'savoya' )
+    )
+
     ) );
 
     // Logo Light Upload
@@ -362,13 +442,13 @@ if ( class_exists( 'Kirki' ) ) {
         'section'     => 'logo',
         'default'     => get_template_directory_uri() . '/includes/assets/logo-light.png',
         'priority'    => 10,
-        'active_callback'  => array(
-        array(
-            'setting'  => 'header_logo_light_activate',
-            'operator' => '==',
-            'value'    => 1,
+        'active_callback'    => array(
+            array(
+                'setting'  => 'header_logo_light_activate',
+                'operator' => '==',
+                'value'    => '1',     
+            ),
         ),
-    )
        
     ) );
 

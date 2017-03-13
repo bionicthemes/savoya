@@ -162,6 +162,12 @@
 
 						&.menu-item-has-children 
 						{
+
+
+							> a:hover:after
+							{
+								content: "\f068";
+							}
 							
 							> a:after 
 							{
@@ -173,6 +179,7 @@
 								position: absolute;
 								right: 0;
 								font-size: 8px; 
+								@include transition(all, .15, ease-in);
 							}
 						}
 
@@ -182,7 +189,7 @@
 							width: 100%;
 							text-transform: none;
 							font-weight: normal;
-							@include transition(padding, .15, ease-in);
+							@include transition(all, .15, ease-in);
 							
 							&:hover
 							{

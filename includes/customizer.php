@@ -14,6 +14,7 @@ if ( ! function_exists ('theme_custom_styles') ) {
 	global $custom_header_layout,
 		   $custom_header_logo,
 		   $custom_header_logo_light,
+		   $custom_header_logo_light_activate,
 		   $custom_header_search_state,
 		   $custom_header_cart,
 		   $custom_header_widget,
@@ -116,9 +117,9 @@ if ( ! function_exists ('theme_custom_styles') ) {
 			$custom_header_layout          			 = savoya_theme_option('header_layout', 'classic-1');
 			$custom_header_logo            			 = savoya_theme_option('header_logo', get_template_directory_uri() . '/includes/assets/logo.png');
 			
-			$custom_header_logo_light            	 = savoya_theme_option('header_logo_light', get_template_directory_uri() . '/includes/assets/logo-light.png');
+	$custom_header_logo_light           = savoya_theme_option('header_logo_light', get_template_directory_uri() . '/includes/assets/logo-light.png');
 
-			$custom_header_logo_light_activate       = savoya_theme_option('header_logo_light_activate', 0);	
+			$custom_header_logo_light_activate       = savoya_theme_option('header_logo_light_activate', 'on');	
 
 			$custom_header_sticky           		 = savoya_theme_option('header_sticky', 1);
 			$custom_header_search_state          	 = savoya_theme_option('header_search', 1);

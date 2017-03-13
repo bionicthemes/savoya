@@ -10,25 +10,23 @@ global $custom_header_logo,
 	   $custom_header_sticky_logo,
 	   $custom_header_top_bar_phone,
 	   $custom_header_transparent,
-
+	   $custom_header_logo_light,
 	   $custom_header_logo_light_activate;
 
-	   $bodyClass = [];
+	   $stickyHeader = '';
 
+		if ( $custom_header_logo_light_activate === '1' ) {
 
-	   if ( $custom_header_logo_light_activate == 1 ) {
+			$custom_header_logo = $custom_header_logo_light;
+		} 
 
-	   		array_push($bodyClass, 'logo-light');
-	   }
+		if ( $custom_header_sticky == 1 ) {
+			$stickyHeader = 'header-sticky';
+			} else {
+			$stickyHeader = '';
+		}
 
-	   var_dump($bodyClass);
-
-	
 ?>
-
-
-
-
 
 
 
@@ -42,7 +40,7 @@ global $custom_header_logo,
 
 
 <header 
-	class="header-classic header-classic-1 site-header <?php if ( $custom_header_sticky == 1 ) : ?> header-sticky<?php endif; ?> ">
+	class="header-classic header-classic-1 site-header <?php echo $stickyHeader; ?>">
 
 	<!-- Header Navigation -->
 

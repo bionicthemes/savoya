@@ -290,13 +290,8 @@ function show_transparent_logo() {
 
 	if (  $custom_header_transparent  == 1 ) {
 
-		if ( $custom_header_transparent_dark_color == 1 && $custom_header_transparent_light_color == 1) {
 
-			echo $custom_header_transparent_dark_color;
-
-			echo $custom_header_transparent_light_color;
-
-		}
+		echo $custom_header_logo_light;
 
 	}
 

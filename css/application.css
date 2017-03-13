@@ -2793,6 +2793,8 @@ cite {
                   padding-top: 0; }
                 .site-header.header-classic .header-container .main-navigation > ul > li:not(.megamenu-item) ul li:last-child {
                   padding-bottom: 0; }
+                .site-header.header-classic .header-container .main-navigation > ul > li:not(.megamenu-item) ul li.menu-item-has-children > a:hover:after {
+                  content: "\f068"; }
                 .site-header.header-classic .header-container .main-navigation > ul > li:not(.megamenu-item) ul li.menu-item-has-children > a:after {
                   font-family: 'FontAwesome';
                   font-style: normal;
@@ -2801,13 +2803,14 @@ cite {
                   content: "\f067";
                   position: absolute;
                   right: 0;
-                  font-size: 8px; }
+                  font-size: 8px;
+                  transition: all 0.15 ease-in; }
                 .site-header.header-classic .header-container .main-navigation > ul > li:not(.megamenu-item) ul li a {
                   margin: 0;
                   width: 100%;
                   text-transform: none;
                   font-weight: normal;
-                  transition: padding 0.15 ease-in; }
+                  transition: all 0.15 ease-in; }
                   .site-header.header-classic .header-container .main-navigation > ul > li:not(.megamenu-item) ul li a:hover {
                     padding-left: 10px; }
                   .site-header.header-classic .header-container .main-navigation > ul > li:not(.megamenu-item) ul li a i {
