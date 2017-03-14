@@ -25,10 +25,11 @@ if( !function_exists('savoya_register_nav_menus') ) {
 **/
 if ( !function_exists('savoya_add_custom_nav_fields') ) {
 	function savoya_add_custom_nav_fields( $menu_item ) {
-		$menu_item->subtitle = get_post_meta( $menu_item->ID, '_menu_item_subtitle', true );
+		// $menu_item->subtitle = get_post_meta( $menu_item->ID, '_menu_item_subtitle', true );
 	    $menu_item->icon 	 = get_post_meta( $menu_item->ID, '_menu_item_icon', true );
 	    $menu_item->megamenu = get_post_meta( $menu_item->ID, '_menu_item_megamenu', true );
 	    $menu_item->button 	 = get_post_meta( $menu_item->ID, '_menu_item_button', true );
+	    $menu_item->button 	 = get_post_meta( $menu_item->ID, '_menu_item_background', false );
 	    return $menu_item;
 	}
 	add_filter( 'wp_setup_nav_menu_item', 'savoya_add_custom_nav_fields' );
@@ -39,8 +40,8 @@ if ( !function_exists('savoya_add_custom_nav_fields') ) {
 **/
 if ( !function_exists('savoya_update_custom_nav_fields') ) {
 	function savoya_update_custom_nav_fields( $menu_id, $menu_item_id, $args ) {
-	    if ( isset( $_REQUEST['menu-item-subtitle'] ) && is_array( $_REQUEST['menu-item-subtitle'] ) )
-	        update_post_meta( $menu_item_id, '_menu_item_subtitle', $_REQUEST['menu-item-subtitle'][$menu_item_id] );
+	    // if ( isset( $_REQUEST['menu-item-subtitle'] ) && is_array( $_REQUEST['menu-item-subtitle'] ) )
+	    //     update_post_meta( $menu_item_id, '_menu_item_subtitle', $_REQUEST['menu-item-subtitle'][$menu_item_id] );
 	    if ( isset( $_REQUEST['menu-item-icon'] ) && is_array( $_REQUEST['menu-item-icon']) )
 	        update_post_meta( $menu_item_id, '_menu_item_icon', $_REQUEST['menu-item-icon'][$menu_item_id] );
 	    if ( isset( $_REQUEST['menu-item-megamenu'] ) && is_array( $_REQUEST['menu-item-megamenu'] ) )
@@ -136,7 +137,7 @@ if( !class_exists('savoya_Nav_Walker') ) {
 			
 			$item_output .= $args->link_before . ( ! empty( $item->icon ) ? '<i class="'. esc_attr( $item->icon ).'"></i> ' : '' ) . apply_filters( 'the_title',  $item->title, $item->ID ) . $args->link_after;
 			$item_output .= ! empty( $item->attr_title ) ? '<span class="label">' . $item->attr_title . '</span>' : '';
-			$item_output .= ! empty( $item->subtitle ) ? '<span>' . $item->subtitle . '</span>' : '';
+			// $item_output .= ! empty( $item->subtitle ) ? '<span>' . $item->subtitle . '</span>' : '';
 			if( $attributes ) {
 				$item_output .= $args->has_children && 0 === $depth ? '</a>' : '</a>';
 			} else {
@@ -372,12 +373,12 @@ if( !class_exists('savoya_Nav_Edit_Walker') ) {
 						</label>
 					</p>
 					<!-- BEGIN: SUBTITLE FIELD - - - - - - - - - - - -->
-					<p class="field-tlg-subtitle field-subtitle description description-wide">
-						<label for="edit-menu-item-subtitle-<?php echo esc_attr( $item_id ); ?>">
-							<?php esc_html_e( 'Subtitle', 'savoya' ); ?><br />
-							<input type="text" id="edit-menu-item-subtitle-<?php echo esc_attr( $item_id ); ?>" class="widefat edit-menu-item-subtitle" name="menu-item-subtitle[<?php echo esc_attr($item_id); ?>]" value="<?php echo esc_attr( $item->subtitle ); ?>" />
+					<!-- <p class="field-tlg-subtitle field-subtitle description description-wide">
+						<label for="edit-menu-item-subtitle-<?php //echo esc_attr( $item_id ); ?>">
+							<?php //esc_html_e( 'Subtitle', 'savoya' ); ?><br />
+							<input type="text" id="edit-menu-item-subtitle-<?php //echo esc_attr( $item_id ); ?>" class="widefat edit-menu-item-subtitle" name="menu-item-subtitle[<?php //echo esc_attr($item_id); ?>]" value="<?php //echo esc_attr( $item->subtitle ); ?>" />
 						</label>
-					</p>
+					</p> -->
 					<!-- END: SUBTITLE FIELD - - - - - - - - - - - -->
 					<!-- BEGIN: ICON FIELD - - - - - - - - - - - -->
 					

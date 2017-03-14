@@ -47,7 +47,7 @@ if ( ! function_exists ('theme_custom_styles') ) {
 		   $custom_header_top_bar_hover_color,
 		   $custom_header_top_bar_phone,
 		   $custom_header_top_bar_email,
-		   $custom_header_top_bar_address,
+		   $custom_header_top_bar_custom_text,
 		   $custom_header_top_social_media,
 		   $custom_header_top_bar_text,
 		   $custom_header_top_bar_font_size,
@@ -123,7 +123,7 @@ if ( ! function_exists ('theme_custom_styles') ) {
 			
 	$custom_header_logo_light           = savoya_theme_option('header_logo_light', get_template_directory_uri() . '/includes/assets/logo-light.png');
 
-			$custom_header_logo_light_activate       = savoya_theme_option('header_logo_light_activate', 'on');	
+			$custom_header_logo_light_activate       = savoya_theme_option('header_logo_light_activate', '0');	
 
 
 
@@ -169,7 +169,7 @@ if ( ! function_exists ('theme_custom_styles') ) {
 			$custom_header_top_bar_hover_color      = savoya_theme_option( 'header_top_bar_hover_color', '#546E7A');
 			$custom_header_top_bar_phone            = savoya_theme_option( 'header_top_bar_phone', '+1-202-555-0121');
 		    $custom_header_top_bar_email            = savoya_theme_option( 'header_top_bar_email', 'website@website.com');
-		    $custom_header_top_bar_address          = savoya_theme_option( 'header_top_bar_address', '6 Poplar Way, Cranford, NJ, 07016');
+		    $custom_header_top_bar_custom_text          = savoya_theme_option( 'header_top_bar_custom_text', '6 Poplar Way, Cranford, NJ, 07016');
 		    $custom_header_top_bar_text          	= savoya_theme_option( 'header_top_bar_text', 'This is a dummy text');
 		    $custom_header_top_bar_activate			= savoya_theme_option( 'header_top_bar_activate', 0);
 
@@ -348,6 +348,14 @@ if ( ! function_exists ('theme_custom_styles') ) {
 		.header-search.active form .search_info
 		{
 			color: <?php echo $custom_header_search_text_color;?>;
+		}
+
+		@media (max-width: 768px) 
+		{
+			.header-search.active form input 
+			{
+				font-size: 14px;
+			}
 		}
 
 

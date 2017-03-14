@@ -29,17 +29,6 @@ function savoya_theme_setup() {
 		'footer' 			=> __('Footer Menu', 'savoya')
 	));
 
-	// Widgets
-if (function_exists('register_header_widgets')) {
-
-	register_header_widgets( array(
-		'name'             => 'Header Widgets',
-		'id'               => 'header_widgets_area',
-		'before_widget'    => '<div class="header-widget">',
-		'after_widget'     => '</div>',
-	));
-}
-
 
 
 	// if ( savoya_theme_option('header_layout', 'style-1') == 'style-1' ) :

@@ -3,6 +3,7 @@
 /**********************************************
  *********** Savoya Theme Customizer **********
  *********************************************/
+       
 
 
 //remove default wordpress customizer options
@@ -385,11 +386,13 @@ if ( class_exists( 'Kirki' ) ) {
         ),
     ) );
 
-    // Header Top Bar Address
+
+
+    // Header Top Bar Custom Text
     Kirki::add_field( '', array(
         'type'        => 'text',
-        'setting'     => 'header_top_bar_address',
-        'label'       => __( 'Header Top Bar Address', 'savoya' ),
+        'setting'     => 'header_top_bar_custom_text',
+        'label'       => __( 'Header Top Bar Custom Text', 'savoya' ),
         'section'     => 'header_top_bar',
         'default'  => esc_attr__( '6 Poplar Way, Cranford, NJ, 07016', 'savoya' ),
         'priority'    => 10,
@@ -403,22 +406,6 @@ if ( class_exists( 'Kirki' ) ) {
     ) );
 
 
-    // Header Top Bar Text
-    Kirki::add_field( '', array(
-        'type'        => 'text',
-        'setting'     => 'header_top_bar_text',
-        'label'       => __( 'Header Top Bar Text', 'savoya' ),
-        'section'     => 'header_top_bar',
-        'default'     => 'This is a dummy text',
-        'priority'    => 10,
-        'active_callback'    => array(
-            array(
-                'setting'  => 'header_top_bar_activate',
-                'operator' => '==',
-                'value'    => '1',     
-            ),
-        ),
-    ) );
 
 
     /*******************************************
@@ -457,7 +444,7 @@ if ( class_exists( 'Kirki' ) ) {
         'setting'     => 'header_logo_light_activate',
         'label'       => __( 'Light Logo?', 'savoya' ),
         'section'     => 'logo',
-        'default'     => '1',
+        'default'     => '0',
         'priority'    => 10,
 
     ) );
@@ -623,7 +610,7 @@ if ( class_exists( 'Kirki' ) ) {
         'section'     => 'header_section_layout',
         'panel'       => 'header_panel_styles',
         'setting'     => 'header_distance_top',
-        'label'       => __( 'Header Distance Top', 'savoya' ),
+        'label'       => __( 'Header Offset Top', 'savoya' ),
         'description' => __( 'Move the header from top to bottom a specific amount of pixels', 'savoya' ),
         'priority'    => 10,
         'default'     => '0',
@@ -744,7 +731,7 @@ if ( class_exists( 'Kirki' ) ) {
 
     ) );
 
-    // Header Sticky Background Color
+    // Header Sticky Logo
     Kirki::add_field( '', array(
         'type'        => 'image',
         'section'     => 'header_stickiness',
@@ -1477,4 +1464,6 @@ if ( class_exists( 'Kirki' ) ) {
 
 }
  
+
+
 ?>

@@ -113,9 +113,7 @@ global $custom_header_logo,
                 	
                 	<li class="search-icon">
 						
-						<!-- <span class="icon-search"></span> -->
 						<span id="search" class="icon-search"></span>
-
 						
 					</li>
 
@@ -124,17 +122,6 @@ global $custom_header_logo,
 			</ul>
 		
   	  </div>
-
-
-	  	  <?php if ( $custom_header_widget == 1 ) {
-
-	            dynamic_sidebar('header-widget-area'); 	
-			}
-
-			?>
-
-
-
 
 	<!-- end Header Container -->
 

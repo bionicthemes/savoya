@@ -3,7 +3,7 @@
 	global	
 	$custom_header_top_bar_phone,
 	$custom_header_top_bar_email,	
-	$custom_header_top_bar_address,	
+	$custom_header_top_bar_custom_text,	
 	$custom_header_top_social_media,
 	$custom_header_top_bar_text,
 	$custom_header_top_bar_activate,
@@ -36,6 +36,7 @@
 
 <?php if ( $custom_header_top_bar_activate != "0" )   : ?>
 
+
 	<div class="header-top-bar hide-for-small-only">
 		<div class="header-topbar-content">
 			<div class="header-topbar-info">
@@ -56,10 +57,10 @@
 
 					<?php endif; ?>
 
-					<?php if ( !empty($custom_header_top_bar_address )) : ?>
+					<?php if ( !empty($custom_header_top_bar_custom_text )) : ?>
 					<li class="address">
-						<i class="fa fa-map-marker" aria-hidden="true"></i>
-						<?php echo esc_html($custom_header_top_bar_address); ?>
+						<!-- <i class="fa fa-map-marker" aria-hidden="true"></i> -->
+						<?php echo esc_html($custom_header_top_bar_custom_text); ?>
 					</li>
 
 					<?php endif; ?>
@@ -217,8 +218,6 @@
 				</ul>
 
 			</div>
-
-		
 				
 		</div>	
 	</div>

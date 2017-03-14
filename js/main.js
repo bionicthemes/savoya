@@ -10,11 +10,8 @@ jQuery(function($) {
 
 	// open search 	
 	$(document).on('click', '.icon-search', function() {
-		$(this).attr('class', 'icon-close');
 		$('.page-wrapper').addClass('moveAtSearch');
-
-		$('.site-header').addClass('pointer-events');
-
+		$(this).hide();
 		headerSearch.addClass('active');
 		setTimeout(function() {
 			$(".header-search.active input[type='search']").focus();
@@ -23,11 +20,8 @@ jQuery(function($) {
 
 	// close search
 	$(document).on('click', '.icon-close', function() {
-
-		$('.site-header').removeClass('pointer-events');
-
+		$('.icon-search').show();
 		$('.page-wrapper').removeClass('moveAtSearch');
-		$(this).attr('class', 'icon-search');
 		headerSearch.removeClass('active');
 	});
 

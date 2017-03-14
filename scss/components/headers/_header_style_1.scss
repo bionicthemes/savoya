@@ -10,12 +10,6 @@
 	font-family: $main-font;
 	@include clearfix();
 	
-	&.pointer-events
-	{
-		pointer-events: none;
-	}
-
-	
 	&.header-classic
 	{
 		.header-container
@@ -147,11 +141,6 @@
 					li
 					{
 
-						&.search-icon
-						{
-							pointer-events: all;
-						}
-						
 						a
 						{
 							.shopping_bag_items_number
