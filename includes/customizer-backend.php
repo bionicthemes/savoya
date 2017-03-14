@@ -676,36 +676,6 @@ if ( class_exists( 'Kirki' ) ) {
 
     ) );
 
-    // Search Overlay Text color
-
-    Kirki::add_field( '', array(
-        'type'        => 'color',
-        'section'     => 'header',
-        'panel'       => 'header_panel_styles',
-        'setting'     => 'header_search_text_color',
-        'label'       => __( 'Search Text Color', 'savoya' ),
-        'priority'    => 10,
-        'default'     => '#FFFFFF',
-
-    ) );
-
-    // Search Overlay Font size
-
-    Kirki::add_field( '', array(
-        'type'        => 'slider',
-        'section'     => 'header',
-        'panel'       => 'header_panel_styles',
-        'setting'     => 'header_search_font_size',
-        'label'       => __( 'Search Font Size', 'savoya' ),
-        'priority'    => 10,
-        'default'     => '100',
-        'choices'     => array(
-            'min'  => '50',
-            'max'  => '100',
-            'step' => 1,
-        ),
-
-    ) );
 
     /********************************************
     /********** Header Sticky *******************

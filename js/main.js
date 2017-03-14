@@ -11,7 +11,6 @@ jQuery(function($) {
 	// open search 	
 	$(document).on('click', '.icon-search', function() {
 		$('.page-wrapper').addClass('moveAtSearch');
-		$(this).hide();
 		headerSearch.addClass('active');
 		setTimeout(function() {
 			$(".header-search.active input[type='search']").focus();
@@ -20,7 +19,6 @@ jQuery(function($) {
 
 	// close search
 	$(document).on('click', '.icon-close', function() {
-		$('.icon-search').show();
 		$('.page-wrapper').removeClass('moveAtSearch');
 		headerSearch.removeClass('active');
 	});

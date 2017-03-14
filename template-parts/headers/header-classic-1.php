@@ -33,11 +33,6 @@ global $custom_header_logo,
 
 <?php get_template_part( 'template-parts/includes/header', 'top-bar' ); ?>
 
-<!-- Search -->
-	
-<div class="header-search">
-	<?php get_search_form(); ?>
-</div>
 
 
 <header 
@@ -48,8 +43,12 @@ global $custom_header_logo,
 
 	<div class="header-container">
 
-		<!-- Site Logo -->
 
+		<div class="header-search">
+			<?php get_search_form(); ?>
+		</div>
+
+		<!-- Site Logo -->
 		<div class="header-branding">
 
             <?php if ( ! empty( $custom_header_logo ) ) : ?>

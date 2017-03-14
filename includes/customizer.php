@@ -54,10 +54,6 @@ if ( ! function_exists ('theme_custom_styles') ) {
 		   $custom_header_top_bar_paddingTB,
 		   $custom_header_top_bar_paddingRL,
 
-		   // Search Overlay
-
-		   $custom_header_search_text_color,
-		   $custom_header_search_font_size,
 
 
 		   // Main Menu
@@ -180,10 +176,7 @@ if ( ! function_exists ('theme_custom_styles') ) {
 		    $custom_header_top_bar_paddingRL		= savoya_theme_option( 'header_top_bar_paddingRL', '10');
 
 
-		    // Search
-			$custom_header_search_text_color 			= savoya_theme_option( 'header_search_text_color', '#FFFFFF');
-			$custom_header_search_font_size				= savoya_theme_option( 'header_search_font_size',         		'100');
-
+		 
 
 			// Main Menu submenu
 
@@ -334,29 +327,6 @@ if ( ! function_exists ('theme_custom_styles') ) {
 		/******** General Settings *****************
 		/*******************************************************/
 
-		/***********************************
-		/********** Search Overlay *********
-		/**********************************/
-		
-		.header-search.active form input
-		{
-			color: <?php echo $custom_header_search_text_color;?>;
-			font-size: <?php echo $custom_header_search_font_size .'px'; ?>;
-			border-bottom-color: <?php echo $custom_header_search_text_color;?>;
-		}
-
-		.header-search.active form .search_info
-		{
-			color: <?php echo $custom_header_search_text_color;?>;
-		}
-
-		@media (max-width: 768px) 
-		{
-			.header-search.active form input 
-			{
-				font-size: 14px;
-			}
-		}
 
 
 		/***********************************
@@ -448,11 +418,14 @@ if ( ! function_exists ('theme_custom_styles') ) {
 		.site-header .header-container .header-icons-mobile > li > a,
 		.site-header .header-container .header-tools > ul > li > a,
 		.site-header .header-container .header-widget,
+		.header-search form input
 		{
 			font-size: <?php echo $custom_header_font_size . 'px'; ?>;                /* Header Font-Size */
 			color: <?php echo $custom_header_text_color; ?>;                       /* Header Color */
 
 		}
+
+
 
 
 		.site-header .header-container .main-navigation > ul > li:not(.menu-item-btn) > a
