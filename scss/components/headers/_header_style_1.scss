@@ -10,6 +10,33 @@
 	font-family: $main-font;
 	@include clearfix();
 	
+	&.align_left
+	{
+		text-align: left
+	}
+
+	&.align_right
+	{
+		text-align: right;
+	}
+
+	&.align_center
+	{
+		text-align: center;
+		
+		.header-branding,
+		.header-tools
+		{
+			width: 10%; 
+		}
+		
+		.main-navigation
+		{
+			width: 90%; 
+		}
+	
+	}
+	
 	&.header-classic
 	{
 		.header-container
@@ -33,18 +60,6 @@
 				> ul
 				{
 					line-height: rem-calc(32); 
-				}
-			}
-
-			.header-widget
-			{
-				display: none;
-				
-				@include breakpoint(large)
-				{
-					display: table-cell;
-					vertical-align: middle;
-					text-align: right;
 				}
 			}
 
@@ -96,8 +111,6 @@
 				display: inline-block;
 				vertical-align: middle;	
 				position: relative;
-				text-align: right;
-				padding-left: rem-calc(20); 
 				
 				ul
 				{

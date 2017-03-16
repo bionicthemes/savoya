@@ -15,83 +15,22 @@
  * @version 1.0
  */
 
-get_header(); ?>
 
-<div class="wrap">
-	<?php if ( is_home() && ! is_front_page() ) : ?>
-		<header class="page-header">
-			<h1 class="page-title"><?php single_post_title(); ?></h1>
-		</header>
-	<?php else : ?>
-	<header class="page-header">
-		<h2 class="page-title"><?php _e( 'Posts', 'savoya' ); ?></h2>
-	</header>
-	<?php endif; ?>
+get_header();
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+global $custom_blog_layout;
 
-			<div class="blog-listing">
+switch ($custom_blog_layout)
+{        
+    case "classic":
+        get_template_part('/template-parts/blog/blog', 'classic');
+        break;
+    case "layout_1":
+          get_template_part('/template-parts/blog/blog', 'layout-1');
+        break;
+    default:
+          get_template_part('/template-parts/blog/blog', 'classic');
+        break;
+}
 
-				<div class="row">
-
-					<?php if ( ! is_home() ) : ?>
-
-					<header class="archive-title-wrapper">
-
-						<h1 class="archive-title"><?php the_archive_title(); ?></h1>
-						<div class="archive-description"><?php the_archive_description(); ?></div>
-
-					</header>
-
-				<?php endif; ?>
-					
-					<div class="large-9 large-push-3 columns">
-		
-						<div class="blog-articles">
-
-							<?php
-							
-							if ( have_posts() ) :
-
-								while ( have_posts() ) : the_post();
-
-									get_template_part( 'template-parts/content/content', get_post_format() );
-
-								endwhile;
-
-							else :
-
-								get_template_part( 'template-parts/content/content', 'none' );
-
-							endif;
-
-							?>
-
-						</div>
-
-						<?php
-							the_posts_navigation(array(
-								'prev_text' => __( '&larr; Older posts', 'getbowtied' ),
-								'next_text' => __( 'Newer posts &rarr;', 'getbowtied' ),
-							));
-						?>
-
-					</div>
-
-				<div class="large-3 large-pull-9 columns">
-					<?php get_sidebar(); ?>
-				</div>				
-
-			</div>
-
-		</div>
-
-
-
-			
-		</main><!-- #main
-	</div><!-- #primary -->
-</div><!-- .wrap --> 
-
-<?php get_footer();
+get_footer();

@@ -18,11 +18,6 @@ global $custom_header_logo,
 
 <?php get_template_part( 'template-parts/includes/header', 'top-bar' ); ?>
 
-<!-- Search -->
-	
-<div class="header-search">
-	<?php get_search_form(); ?>
-</div>
 
 
 <header 
@@ -30,6 +25,12 @@ global $custom_header_logo,
 
 	<!-- Header Navigation -->
 
+	
+	<!-- Search -->
+		
+	<div class="header-search">
+		<?php get_search_form(); ?>
+	</div>
 
 	<div class="header-container">
 
@@ -99,6 +100,10 @@ global $custom_header_logo,
 					</li>
 
 				<?php endif; ?>
+
+					<li class="menu-icon">
+						<span id="menuIcon" class="hamburger-menu"></span>
+					</li>
 
 			</ul>
 		

@@ -508,16 +508,6 @@ if ( class_exists( 'Kirki' ) ) {
         'default'     => false,
     ) );
 
-    // Header Widget Area
-    Kirki::add_field( '', array(
-        'type'        => 'switch',
-        'section'     => 'header_elements',
-        'panel'       => 'header_panel_styles',
-        'setting'     => 'header_widget',
-        'label'       => __( 'Header Widget ( Appearance -> Widgets - > Header Widget Area ) ', 'savoya' ),
-        'priority'    => 10,
-        'default'     => true,
-    ) );
 
     // Header Transparent
     Kirki::add_field( '', array(
@@ -567,6 +557,25 @@ if ( class_exists( 'Kirki' ) ) {
     ) );
 
 
+    // Main Navigation Align
+    Kirki::add_field( '', array(
+        'type'        => 'radio-image',
+        'section'     => 'header_section_layout',
+        'panel'       => 'header_panel_styles',
+        'setting'     => 'align_menu_class',
+        'label'       => __( 'Main Navigation Align', 'savoya' ),
+        'description' => __( 'Select Main Menu Alignement', 'savoya' ),
+        'priority'    => 10,
+        'default'     => 'align_right',
+        'choices'     => array(
+            'align_left'    => get_template_directory_uri() . '/images/customiser/body_full_width.png',
+            'align_center'  => get_template_directory_uri() . '/images/customiser/body_boxed.png',
+            'align_right'   => get_template_directory_uri() . '/images/customiser/body_boxed.png',
+        ),
+
+    ) );
+
+
     // Header Width
     Kirki::add_field( '', array(
         'type'        => 'slider',
@@ -604,16 +613,34 @@ if ( class_exists( 'Kirki' ) ) {
     ) );
 
 
-    // Header Distance Top
+    // Header Spacing Top
     Kirki::add_field( '', array(
-        'type'        => 'slider',
+        'type'        => 'number',
         'section'     => 'header_section_layout',
         'panel'       => 'header_panel_styles',
-        'setting'     => 'header_distance_top',
-        'label'       => __( 'Header Offset Top', 'savoya' ),
-        'description' => __( 'Move the header from top to bottom a specific amount of pixels', 'savoya' ),
+        'setting'     => 'header_spacing_top',
+        'label'       => __( 'Header Spacing Top', 'savoya' ),
+        'description' => __( 'Spacing Above Header -  Default: 0px;', 'savoya' ),
         'priority'    => 10,
         'default'     => '0',
+        'choices'     => array(
+            'min'  => '0',
+            'max'  => '50',
+            'step' => 1,
+        ),
+
+    ) );
+
+    // Header Spacing Bottom
+    Kirki::add_field( '', array(
+        'type'        => 'number',
+        'section'     => 'header_section_layout',
+        'panel'       => 'header_panel_styles',
+        'setting'     => 'header_spacing_bottom',
+        'label'       => __( 'Header Spacing Bottom', 'savoya' ),
+        'description' => __( 'Spacing Below Header - Default 10', 'savoya' ),
+        'priority'    => 10,
+        'default'     => '10',
         'choices'     => array(
             'min'  => '0',
             'max'  => '50',

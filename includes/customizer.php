@@ -61,9 +61,12 @@ if ( ! function_exists ('theme_custom_styles') ) {
 		   $custom_header_sub_main_menu_bg_color,
 		   $custom_header_sub_main_menu_font_color,
 
-		   // Header Distance Top
+		   $custom_align_menu_class,
 
-		   $custom_header_distance_top,
+		   // Header spacing Top
+
+		   $custom_header_spacing_top,
+		   $custom_header_spacing_bottom,
 
 
 			$fa_facebook,
@@ -157,7 +160,7 @@ if ( ! function_exists ('theme_custom_styles') ) {
 			// Top Bar
 
 			$custom_header_top_bar_background_color 	= savoya_theme_option( 'header_top_bar_background_color', '#05F9DF');
-	$custom_header_top_bar_background_transparent = savoya_theme_option( 'header_top_bar_background_transparent', '1');
+			$custom_header_top_bar_background_transparent = savoya_theme_option( 'header_top_bar_background_transparent', '1');
 
 
 			$custom_header_top_bar_text_color       = savoya_theme_option( 'header_top_bar_text_color', '#7f8c8d');
@@ -180,10 +183,12 @@ if ( ! function_exists ('theme_custom_styles') ) {
 
 			// Main Menu submenu
 
-			$custom_header_sub_main_menu_bg_color		= savoya_theme_option( 'header_sub_main_menu_bg_color',          '#373737');
-			$custom_header_sub_main_menu_font_color		= savoya_theme_option( 'header_sub_main_menu_font_color',         '#FFF');
+			$custom_header_sub_main_menu_bg_color		= savoya_theme_option( 'header_sub_main_menu_bg_color', '#373737');
+			$custom_header_sub_main_menu_font_color		= savoya_theme_option( 'header_sub_main_menu_font_color','#FFF');
+			$custom_align_menu_class					= savoya_theme_option( 'align_menu_class', 'align_right');
 
-			$custom_header_distance_top					= savoya_theme_option( 'header_distance_top', '0');
+			$custom_header_spacing_top					= savoya_theme_option( 'header_spacing_top', '0');
+			$custom_header_spacing_bottom				= savoya_theme_option( 'header_spacing_bottom', '10');
 
 
 			// Transparent
@@ -270,7 +275,7 @@ if ( ! function_exists ('theme_custom_styles') ) {
 				' . $color_scheme . ' .site-header .header-container .header-branding .site-title a,
 				' . $color_scheme . ' .site-header .header-container .header-icons-mobile > li > a,
 				' . $color_scheme . ' .site-header .header-container .main-navigation > ul > li > a,
-				' . $color_scheme . ' .site-header .header-container .header-tools > ul > li > a,
+				' . $color_scheme . ' .site-header .header-container .header-tools > ul > li,
 				' . $color_scheme . ' .site-header .header-container .main-navigation ul > li:hover > a,
 				' . $color_scheme . ' .site-header .header-container .header-widget,
 				' . $color_scheme . ' .site-header .header-container .offcanvas-menu-icon a,
@@ -278,7 +283,7 @@ if ( ! function_exists ('theme_custom_styles') ) {
 				' . $color_scheme . ' .site-header .header-container .header-branding .site-title a,
 				' . $color_scheme . ' .site-header .header-container .header-icons-mobile > li > a,
 				' . $color_scheme . ' .site-header .header-container .main-navigation > ul > li > a,
-				' . $color_scheme . ' .site-header .header-container .header-tools > ul > li > a,
+				' . $color_scheme . ' .site-header .header-container .header-tools > ul > li,
 				' . $color_scheme . ' .site-header .header-container .main-navigation ul li:hover > a,
 				' . $color_scheme . ' .site-header .header-container .header-widget,
 				' . $color_scheme . ' .site-header .header-container .offcanvas-menu-icon a,
@@ -286,7 +291,7 @@ if ( ! function_exists ('theme_custom_styles') ) {
 				' . $color_scheme . ' .site-header .header-container .header-branding .site-title a,
 				' . $color_scheme . ' .site-header .header-container .header-icons-mobile > li > a,
 				' . $color_scheme . ' .site-header .header-container .main-navigation > ul > li > a,
-				' . $color_scheme . ' .site-header .header-container .header-tools > ul > li > a,
+				' . $color_scheme . ' .site-header .header-container .header-tools > ul > li,
 				' . $color_scheme . ' .site-header .header-container .main-navigation ul li:hover > a,
 				' . $color_scheme . ' .site-header .header-container .header-widget,
 				' . $color_scheme . ' .site-header .header-container .offcanvas-menu-icon a
@@ -294,7 +299,7 @@ if ( ! function_exists ('theme_custom_styles') ) {
 					color: ' . $text_color . ';
 				}
 
-				' . $color_scheme . ' .site-header:not(.header-sticky.active) .header-tools .shopping_bag_items_number,
+				' . $color_scheme . ' .site-header:not(.header-sticky.active) .header-tools,
 				' . $color_scheme . ' .site-header:not(.header-sticky.active) .main-navigation > ul > li.current-menu-item > a
 				{
 					color: ' . $links_color . ' !important;
@@ -404,24 +409,21 @@ if ( ! function_exists ('theme_custom_styles') ) {
 		.site-header .header-container .main-navigation > ul > li > a,
 		.site-header .header-container .header-branding .site-title a,
 		.site-header .header-container .header-icons-mobile > li > a,
-		.site-header .header-container .header-tools > ul > li > a,
-		.site-header .header-container .header-widget
+		.site-header .header-container .header-tools > ul > li
 
 		.site-header .header-container .main-navigation > ul > li > a,
 		.site-header .header-container .header-branding .site-title a,
 		.site-header .header-container .header-icons-mobile > li > a,
-		.site-header .header-container .header-tools > ul > li > a,
-		.site-header .header-container .header-widget
+		.site-header .header-container .header-tools > ul > li
 
 		.site-header .header-container .main-navigation > ul > li > a,
 		.site-header .header-container .header-branding .site-title a,
 		.site-header .header-container .header-icons-mobile > li > a,
-		.site-header .header-container .header-tools > ul > li > a,
-		.site-header .header-container .header-widget,
+		.site-header .header-container .header-tools > ul > li
 		.header-search form input
 		{
 			font-size: <?php echo $custom_header_font_size . 'px'; ?>;                /* Header Font-Size */
-			color: <?php echo $custom_header_text_color; ?>;                       /* Header Color */
+			color: <?php echo $custom_header_text_color . '!important'; ?>;                       /* Header Color */
 
 		}
 
@@ -461,7 +463,7 @@ if ( ! function_exists ('theme_custom_styles') ) {
 
 		.site-header.header-sticky.active .header-container .header-branding .site-title a,
 		.site-header.header-sticky.active .header-container .header-icons-mobile > li > a,
-		.site-header.header-sticky.active .header-container .header-tools > ul > li > a,
+		.site-header.header-sticky.active .header-container .header-tools > ul > li,
 		.site-header.header-sticky.active .header-container .main-navigation > ul > li > a,
 		.site-header.header-sticky.active .header-container .header-widget
 
@@ -494,8 +496,11 @@ if ( ! function_exists ('theme_custom_styles') ) {
 
 		.site-header
 		{
-			margin-top: <?php echo $custom_header_distance_top  . 'px';?>
+			margin-top: <?php echo $custom_header_spacing_top  . 'px';?>;
+			margin-bottom: <?php echo $custom_header_spacing_bottom  . 'px';?>;
 		}
+
+		.site-header.header-sticky.active {margin-top: 0 !important}  /* Important, header sticky always top */
 	
 
 		/***********************************

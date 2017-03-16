@@ -2,6 +2,8 @@
 
 <?php 
 
+
+
 global $custom_header_logo,
 	   $custom_header_search_state,
 	   $custom_header_cart,
@@ -11,9 +13,12 @@ global $custom_header_logo,
 	   $custom_header_top_bar_phone,
 	   $custom_header_transparent,
 	   $custom_header_logo_light,
-	   $custom_header_logo_light_activate;
+	   $custom_header_logo_light_activate,
+	   $custom_align_menu_class;
 
 	   $stickyHeader = '';
+
+	   $header_classes = array();
 
 		if ( $custom_header_logo_light_activate === '1' ) {
 
@@ -22,9 +27,31 @@ global $custom_header_logo,
 
 		if ( $custom_header_sticky == 1 ) {
 			$stickyHeader = 'header-sticky';
+			$header_classes[0] = "header-sticky";
 			} else {
+				$header_classes[0] = '';
 			$stickyHeader = '';
 		}
+
+		switch ($custom_align_menu_class) {
+			case 'align_left':
+				$custom_align_menu_class = 'align_left';
+				break;
+			case 'align_center':
+				$custom_align_menu_class = 'align_center';
+				break;
+			case 'align_right':
+				$custom_align_menu_class = 'align_right';
+				break;
+			
+			default:
+				$custom_align_menu_class = 'align_right';
+				break;
+		}
+
+		$header_classes[1] = $custom_align_menu_class;
+
+		$header_class = implode(" ", $header_classes);
 
 
 ?>
@@ -36,7 +63,7 @@ global $custom_header_logo,
 
 
 <header 
-	class="header-classic header-classic-1 site-header <?php echo $stickyHeader; ?>">
+	class="header-classic header-classic-1 site-header <?php echo $header_class; ?>">
 
 	<!-- Header Navigation -->
 
@@ -70,15 +97,10 @@ global $custom_header_logo,
 
 		</div>
 
-		<!-- OffCanvas Menu Open Icon -->
-
-		<div class="offcanvas-menu-icon hide-for-large">
-			
-		</div>
 
 		<!-- Main Navigation -->
 
-		<nav class="main-navigation show-for-large align_right">
+		<nav class="main-navigation show-for-large">
 
 			  <?php 
                 wp_nav_menu(array(
@@ -89,7 +111,6 @@ global $custom_header_logo,
     		        'walker'            => new savoya_Nav_Walker()
                 ));
          	   ?>
-		
 		</nav>
 
 	
